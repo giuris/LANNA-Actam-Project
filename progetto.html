@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <!-- QUI SOTTO TUTTI I LINK -->
+        
+        <!-- link per attivare le animazioni W3 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+        
+        
+        <!-- QUI SOTTO TUTTI I CSS -->
+        
+        <!-- Carico il file style.css con i CSS -->
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="style2.css" rel="stylesheet" type="text/css">
+        
+        <style>
+        /* eventuali altri CSS possono essere inseriti qui*/
+                                                    </style>
+    
+    </head>
+
+    <body> <!-- HTML e JAVASCRIPT -->
+        
+        <!-- QUI SOTTO TUTTO L'HTML -->
+        
+        <div id="sfondo">
+        
+        <div id="traslazione"> <!-- per scalare la pagina -->
+        <div id="container" class="w3-animate-opacity" >
+        
+            <img id="panel" src="zMedia/layout.png" style="position:absolute;">
+            
+            <div id="schermo"></div>
+            
+            <div id="tastiera" style="position: absolute; left: 445px; top:1255px"></div>
+            
+            <!-- tasto NOTE-->
+            <img id="tasto1" src="zMedia/tasto1.png" style="position:absolute; left: 136px; top:1325px;">    
+            <!-- tasto FREQ-->
+            <img id="tasto2" src="zMedia/tasto2.png" style="position:absolute; left: 136px; top:1510px;">
+            
+            
+            <!-- creo elemento nota colorato // ID: NotaLuce--> 
+            <!-- (dovrà essere inserito con inherit su javascript) -->
+            <div id="animazione">
+            <main id="NotaLuce" class="big">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 id="nomeNota">G</h1>
+            </main>  
+            </div>
+        
+        </div> 
+        </div> <!-- div per traslare la tastiera -->
+        
+        
+        
+        <!-- QUI SOTTO TUTTI GLI SCRIPT -->
+    
+        <!-- Script per creare i tasti bianchi e neri -->
+        <script> 
+            let tastiera = document.getElementById("tastiera");
+            let aleft=0;
+            let bleft=-25;
+            let i=0;
+            let neri=[0,1,2,3,0,5,6,0,8,9,10,0,12,13,0,15,16,17,0,19,20,0,22,23,24,0];
+            
+            //creo i tasti bianchi
+            for(i=0;i<25;i++){   
+                let tastobianco = document.createElement("div");
+                tastobianco.innerHTML =  '<img id="whiteKey' + i+1 + '" src="https://i.ibb.co/d5MYHqx/tasto-bianco-doppio.png" style="position: absolute; left: ' + aleft +'px;" class="w3-animate-opacity white">';
+                tastiera.append(tastobianco);
+                aleft=aleft+94;
+            }
+            
+            //creo i tasti neri
+            for(i=0;i<25;i++){ 
+                if(neri[i]>0) {
+                    let tastonero = document.createElement("div");
+                    tastonero.innerHTML =  '<img id="blackKey' + i + 'b" src="https://i.ibb.co/hHr2Vzj/tasto-nero-doppio.png" style="position: absolute; left: ' + bleft +'px;z-index=1;" class="w3-animate-opacity black">'; //VERIFICARE RIGA onmousedown="neroPremuto()"
+                    tastiera.append(tastonero);
+                }
+                bleft=bleft+94;
+            }
+        </script>
+        
+        <!-- script per "premere" i tasti bianchi -->
+        <script>
+             whites=document.querySelectorAll(".white");
+             whites.forEach(x=> x.onmousedown = function(){
+                 this.classList.remove("white");
+                 this.classList.add("whitepressed");
+             });
+           
+            whites.forEach(x=> x.onmouseup = function(){
+                this.classList.remove("whitepressed");
+                 this.classList.add("white");
+             });
+        </script>
+        
+        <!-- script per "premere" i tasti neri -->
+        <script>
+             blacks=document.querySelectorAll(".black");
+             blacks.forEach(x=> x.onmousedown = function(){
+                 this.classList.remove("black");
+                 this.classList.add("blackpressed");
+             });
+           
+            blacks.forEach(x=> x.onmouseup = function(){
+                this.classList.remove("blackpressed");
+                 this.classList.add("black");
+             });
+        </script>
+        
+    
+
+    </body>
+
+
+
+
+
+</html>

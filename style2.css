@@ -1,0 +1,143 @@
+/* CSS per la creazione delle note mostrate con il tasto NOTE,
+sottoforma di diamanti luminosi */
+
+#nomeNota{ /* lettera mostrata sul diamante luminoso */
+    color: black;
+    text-align: center;
+    position:absolute;
+    bottom: 22px;
+    left: 48px;
+    font-size: 50px;
+    line-height: 150%;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+#NotaLuce{
+    transform: translate(150px,-650px);
+}
+
+/* programmazione del diamante luminoso */
+.dank-ass-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:800px;
+    
+}
+ .dank-ass-loader .row {
+	 display: flex;
+     
+}
+ .arrow {
+	 margin: 0 -10px;
+	 border-left: 20px solid transparent;
+	 border-right: 20px solid transparent;
+	 border-bottom: 36px solid orange;     /*colore triangoli*/
+	 animation: blink 3s infinite;           /*rotazione ritardo*/
+	 filter: drop-shadow(0 0 30px orange);   /*colore ombre luminose*/
+}
+
+ .arrow.down {
+	 transform: rotate(180deg);
+}
+ .arrow.outer-1 {
+	 animation-delay: -0.0555555556s;
+}
+ .arrow.outer-2 {
+	 animation-delay: -0.1111111111s;
+}
+ .arrow.outer-3 {
+	 animation-delay: -0.1666666667s;
+}
+ .arrow.outer-4 {
+	 animation-delay: -0.2222222222s;
+}
+ .arrow.outer-5 {
+	 animation-delay: -0.2777777778s;
+}
+ .arrow.outer-6 {
+	 animation-delay: -0.3333333333s;
+}
+ .arrow.outer-7 {
+	 animation-delay: -0.3888888889s;
+}
+ .arrow.outer-8 {
+	 animation-delay: -0.4444444444s;
+}
+ .arrow.outer-9 {
+	 animation-delay: -0.5s;
+}
+ .arrow.outer-10 {
+	 animation-delay: -0.5555555556s;
+}
+ .arrow.outer-11 {
+	 animation-delay: -0.6111111111s;
+}
+ .arrow.outer-12 {
+	 animation-delay: -0.6666666667s;
+}
+ .arrow.outer-13 {
+	 animation-delay: -0.7222222222s;
+}
+ .arrow.outer-14 {
+	 animation-delay: -0.7777777778s;
+}
+ .arrow.outer-15 {
+	 animation-delay: -0.8333333333s;
+}
+ .arrow.outer-16 {
+	 animation-delay: -0.8888888889s;
+}
+ .arrow.outer-17 {
+	 animation-delay: -0.9444444444s;
+}
+ .arrow.outer-18 {
+	 animation-delay: -1s;
+}
+ .arrow.inner-1 {
+	 animation-delay: -0.1666666667s;
+}
+ .arrow.inner-2 {
+	 animation-delay: -0.3333333333s;
+}
+ .arrow.inner-3 {
+	 animation-delay: -0.5s;
+}
+ .arrow.inner-4 {
+	 animation-delay: -0.6666666667s;
+}
+ .arrow.inner-5 {
+	 animation-delay: -0.8333333333s;
+}
+ .arrow.inner-6 {
+	 animation-delay: -1s;
+}
+
+ @keyframes blink {
+	 0% {
+		 opacity: 0.1;
+	}
+	 30% {
+		 opacity: 1;
+	}
+	 100% {
+		 opacity: 0.1;
+	}
+}
+
+#animazione {
+    position: absolute;
+    top:200px;
+    left:2200px;
+    animation-name: anna;
+    animation-duration: 4s;
+}
+
+@keyframes anna {
+  0%   { left:2200px; top:200px; opacity: 0.1;}
+  25%  { left:2400px; top:400px; opacity: 1;}
+  50%  {left:2200px; top:600px; opacity: 1;}
+  75%  { left:2000px; top:400px; opacity: 1;}
+  100% { left:2200px; top:200px; opacity: 0.1;}
+}
+ 

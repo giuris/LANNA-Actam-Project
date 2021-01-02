@@ -1,0 +1,53 @@
+body{ /* lo sfondo della pagina è qui */ 
+    background-image: linear-gradient(to right top, #d7d3ff, #cfd5ff, #c6d6ff, #bfd8ff, #b7d9ff, #b7d9ff, #b7d9ff, #b7d9ff, #bfd8ff, #c6d6ff, #cfd5ff, #d7d3ff);
+    z-index: -1;
+    /* transform: scale(0.3); */
+}
+
+#sfondo{
+    background-image: linear-gradient(to right top, #d7d3ff, #cfd5ff, #c6d6ff, #bfd8ff, #b7d9ff, #b7d9ff, #b7d9ff, #b7d9ff, #bfd8ff, #c6d6ff, #cfd5ff, #d7d3ff);
+    position:absolute;
+    width: 2000px;
+    height: 820px;
+}
+
+#container{ /* container principale || contenitore di tutto l'html */
+    position: absolute; 
+    animation-duration: 1700ms;
+    transform: scale(0.35);
+    background-image: linear-gradient(to right top, #d7d3ff, #cfd5ff, #c6d6ff, #bfd8ff, #b7d9ff, #b7d9ff, #b7d9ff, #b7d9ff, #bfd8ff, #c6d6ff, #cfd5ff, #d7d3ff);
+}
+
+#traslazione{
+    position:absolute;
+    transform: translate(215px,40px);
+    background-image: linear-gradient(to right top, #d7d3ff, #cfd5ff, #c6d6ff, #bfd8ff, #b7d9ff, #b7d9ff, #b7d9ff, #b7d9ff, #bfd8ff, #c6d6ff, #cfd5ff, #d7d3ff);
+}
+
+#schermo{ /* sfondo del display della nostra tastiera */
+    position:absolute;
+    top: 156px;
+    left: 81.4px;
+    width: 2712px;
+    height: 881px;
+    background-image: linear-gradient(to left top, #000000, #111111, #1c1c1b, #272625, #313130);
+    border-radius: 5px;
+}
+
+.white{
+    clip: rect(0px, 94px, 457px, 0px);
+}
+
+.whitepressed{
+    clip: rect(460px, 94px, 958px, 0px); /* aggiungere traslazione di 262 px; */
+    transform: translate(-1px,-478px);
+}
+
+.black{
+    clip: rect(0px, 50px, 262px, 0px);
+}
+
+.blackpressed{
+    clip: rect(262px, 50px, 522px, 0px); /* aggiungere traslazione di 262 px; */
+    transform: translate(0,-262px);
+}
