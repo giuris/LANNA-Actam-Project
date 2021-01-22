@@ -1,7 +1,7 @@
 /* CSS per la creazione delle note mostrate con il tasto NOTE,
 sottoforma di diamanti luminosi */
 
-#nomeNota{ /* lettera mostrata sul diamante luminoso */
+.nomeNota{ /* lettera mostrata sul diamante luminoso */
     color: black;
     text-align: center;
     position:absolute;
@@ -12,7 +12,7 @@ sottoforma di diamanti luminosi */
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-#NotaLuce{
+.NotaLuce{
     transform: translate(150px,-650px);
 }
 
@@ -125,15 +125,15 @@ sottoforma di diamanti luminosi */
 	}
 }
 
-#animazione {
+#animazioneNota {
     position: absolute;
     top:200px;
     left:2200px;
-    animation-name: anna;
-    animation-duration: 4s;
+    animation-name: traslazione;
+    animation-duration: 5s;
 }
 
-@keyframes anna {
+@keyframes traslazione {
   0%   { left:2200px; top:200px; opacity: 0.1;}
   25%  { left:2400px; top:400px; opacity: 1;}
   50%  {left:2200px; top:600px; opacity: 1;}
@@ -141,3 +141,6 @@ sottoforma di diamanti luminosi */
   100% { left:2200px; top:200px; opacity: 0.1;}
 }
  
+.dissolve{
+    display: none;
+}

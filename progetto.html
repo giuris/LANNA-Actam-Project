@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <!-- QUI SOTTO TUTTI I LINK -->
+        
+        <!-- link per attivare le animazioni W3 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+        
+        
+        <!-- QUI SOTTO TUTTI I CSS -->
+        
+        <!-- Carico il file style.css con i CSS -->
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="style2.css" rel="stylesheet" type="text/css">
+        
+        <style>
+        /* eventuali altri CSS possono essere inseriti qui*/
+                                                    </style>
+    
+    </head>
+
+    <body> <!-- HTML e JAVASCRIPT -->
+        
+        <!-- QUI SOTTO TUTTO L'HTML -->
+        
+        <div id="sfondo">
+        
+        <div id="traslazione"> <!-- per scalare la pagina -->
+        <div id="container" class="w3-animate-opacity" >
+        
+            <img id="panel" src="zMedia/layout.png" style="position:absolute;">
+            
+            <div id="schermo"></div>
+            
+            <div id="tastiera" style="position: absolute; left: 445px; top:1255px"></div>
+            
+            <!-- tasto NOTE-->
+            <img id="tasto1" src="zMedia/tasto1.png" style="position:absolute; left: 136px; top:1325px;">    
+            <!-- tasto FREQ-->
+            <img id="tasto2" src="zMedia/tasto2.png" style="position:absolute; left: 136px; top:1510px;">
+            
+            
+            <!-- creo elemento nota colorato // ID: NotaLuce--> 
+            <!-- qui verranno inserite le note animate con gli script sotto -->
+            <!-- per la modalità "Note" -->
+            <div id="divanimazioneNota">
+            </div>
+        
+        </div> 
+        </div> <!-- div per traslare la tastiera -->
+        </div>
+        
+        
+        <!-- QUI SOTTO TUTTI GLI SCRIPT -->
+    
+        <!-- Script per creare i tasti bianchi e neri -->
+        <script> 
+            let tastiera = document.getElementById("tastiera");
+            let aleft=0;
+            let bleft=-25;
+            let i=0;
+            let neri=[0,1,2,3,0,5,6,0,8,9,10,0,12,13,0,15,16,17,0,19,20,0,22,23,24,0];
+            
+            //creo i tasti bianchi
+            for(i=0;i<25;i++){   
+                let tastobianco = document.createElement("div");
+                tastobianco.innerHTML =  '<img id="whiteKey' + (i+1) + '" src="https://i.ibb.co/d5MYHqx/tasto-bianco-doppio.png" style="position: absolute; left: ' + aleft +'px;" class="w3-animate-opacity white">';
+                tastiera.append(tastobianco);
+                aleft=aleft+94;
+            }
+            
+            //creo i tasti neri
+            for(i=0;i<25;i++){ 
+                if(neri[i]>0) {
+                    let tastonero = document.createElement("div");
+                    tastonero.innerHTML =  '<img id="blackKey' + i + '" src="https://i.ibb.co/hHr2Vzj/tasto-nero-doppio.png" style="position: absolute; left: ' + bleft +'px;z-index=1;" class="w3-animate-opacity black">'; //VERIFICARE RIGA onmousedown="neroPremuto()"
+                    tastiera.append(tastonero);
+                }
+                bleft=bleft+94;
+            }
+        </script>
+        
+        <!-- script per "premere" i tasti bianchi -->
+        <script>
+             whites=document.querySelectorAll(".white");
+             whites.forEach(x=> x.onmousedown = function(){
+                 this.classList.remove("white");
+                 this.classList.add("whitepressed");
+             });
+           
+            whites.forEach(x=> x.onmouseup = function(){
+                this.classList.remove("whitepressed");
+                 this.classList.add("white");
+             });
+        </script>
+        
+        <!-- script per "premere" i tasti neri -->
+        <script>
+             blacks=document.querySelectorAll(".black");
+             blacks.forEach(x=> x.onmousedown = function(){
+                 this.classList.remove("black");
+                 this.classList.add("blackpressed");
+             });
+           
+            blacks.forEach(x=> x.onmouseup = function(){
+                this.classList.remove("blackpressed");
+                 this.classList.add("black");
+             });
+        </script>
+        
+        <!-- script per fading note --> 
+        <script>
+            let note = document.querySelectorAll(".nota");
+        
+            function dissolveNote(){
+                note.forEach(x=>x.classList.add("dissolve"));
+            }
+            
+            window.setTimeout("dissolveNote()",3900);
+        </script>
+        
+        <!-- script per interagire con la tastiera -->
+        <script>
+            let animazioneNota = document.getElementById("divanimazioneNota");
+            const sustain = 500;
+           
+            
+            function c_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (-9)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">C</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+            
+            function db_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (-8)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">D<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+            
+            function d_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (-7)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">D</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            
+            function eb_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (-6)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">E<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            
+            function e_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (-5)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">E</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            function f_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (-4)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">F<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            
+            function gb_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (-3)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">G<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            
+            function g_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (-2)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">G</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            
+            function ab_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (-1)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">A<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            
+            function a_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (0)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">A</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            
+            function bb_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (1)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">B<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            
+            function b_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (2)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+                
+                /* if(modalitàNote == 1) */
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
+                </div>
+                </div>
+                
+                <h1 class="nomeNota">B</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+            
+            
+            /* function twoc_play() {
+              let contenitoreNota = document.createElement("div");
+              c = new AudioContext();
+              c.createOscillator();
+              var d = c.createOscillator();
+              d.connect(c.destination);
+              const freq = Math.pow(2, (3)/12)*440;
+              d.start();
+              d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain)
+            } */
+            
+            document.addEventListener("keydown", function(event) {
+                
+            // aggiungere gli altri tasti (anche sopra)
+              switch (event.code) {
+                case 'KeyC':
+                  c_play();
+                  break;
+                case 'KeyD':
+                  d_play();
+                  break;
+                case 'KeyE':
+                  e_play();
+                  break;
+                case 'KeyF':
+                  f_play();
+                  break;
+                case 'KeyG':
+                  g_play();
+                  break;
+                case 'KeyA':
+                  a_play();
+                  break;
+                case 'KeyB':
+                  b_play();
+                  break;
+                case 'KeyV':
+                  twoc_play();
+                  break;
+              }
+
+            }, true)
+
+
+            whiteKey5.onclick = c_play;
+            blackKey5.onclick = db_play;
+            whiteKey6.onclick = d_play;
+            blackKey6.onclick = eb_play;
+            whiteKey7.onclick = e_play;
+            whiteKey8.onclick = f_play;
+            blackKey8.onclick = gb_play;
+            whiteKey9.onclick = g_play;
+            blackKey9.onclick = ab_play;
+            whiteKey10.onclick = a_play;
+            blackKey10.onclick = bb_play;
+            whiteKey11.onclick = b_play;
+            whiteKey12.onclick = twoc_play;
+        </script>
+    
+
+    </body>
+
+
+
+
+
+</html>
