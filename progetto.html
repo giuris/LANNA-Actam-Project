@@ -925,13 +925,19 @@
             
             document.addEventListener("keydown", function(event) {
                 
-            // aggiungere gli altri tasti (anche sopra)
+           // aggiunti i tasti neri: Db, Eb, Gb, Ab e Bb
               switch (event.code) {
                 case 'KeyC':
                   c_play();
                   break;
+                case 'Digit1':
+                  db_play();
+                  break;
                 case 'KeyD':
                   d_play();
+                  break;
+                case 'Digit2':
+                  eb_play();
                   break;
                 case 'KeyE':
                   e_play();
@@ -939,11 +945,20 @@
                 case 'KeyF':
                   f_play();
                   break;
+                case 'Digit3':
+                  gb_play();
+                  break;      
                 case 'KeyG':
                   g_play();
                   break;
+                case 'Digit4':
+                  ab_play();
+                  break;
                 case 'KeyA':
                   a_play();
+                  break;
+                case 'Digit5':
+                  bb_play();
                   break;
                 case 'KeyB':
                   b_play();
@@ -954,7 +969,6 @@
               }
 
             }, true)
-
 
             whiteKey5.onclick = c_play;
             blackKey5.onclick = db_play;
