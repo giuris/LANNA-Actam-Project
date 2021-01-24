@@ -1,6 +1,5 @@
 body{ /* lo sfondo della pagina è qui */ 
-    
-}
+    }
 
 #sfondo{
     background-image: linear-gradient(to right top, #d7d3ff, #cfd5ff, #c6d6ff, #bfd8ff, #b7d9ff, #b7d9ff, #b7d9ff, #b7d9ff, #bfd8ff, #c6d6ff, #cfd5ff, #d7d3ff);
