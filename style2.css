@@ -1,6 +1,10 @@
 /* CSS per la creazione delle note mostrate con il tasto NOTE,
 sottoforma di diamanti luminosi */
 
+#divanimazioneNota{
+    
+}
+
 .nomeNota{ /* lettera mostrata sul diamante luminoso */
     color: black;
     text-align: center;
@@ -35,6 +39,7 @@ sottoforma di diamanti luminosi */
 	 border-bottom: 36px solid orange;     /*colore triangoli*/
 	 animation: blink 3s infinite;           /*rotazione ritardo*/
 	 filter: drop-shadow(0 0 30px orange);   /*colore ombre luminose*/
+ 
 }
 
  .arrow.down {
@@ -131,6 +136,7 @@ sottoforma di diamanti luminosi */
     left:2200px;
     animation-name: traslazione;
     animation-duration: 5s;
+
 }
 
 @keyframes traslazione {
