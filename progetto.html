@@ -257,7 +257,9 @@ init();}
               const freq = Math.pow(2, (-9)/12)*440;
               d.start();
               d.frequency.value = freq;
-             
+             if(premutoFreq!=0){
+                FreqNote(freq);
+              };
               setTimeout (function(){
                 d.stop();
               }, sustain)
