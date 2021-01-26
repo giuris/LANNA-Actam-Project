@@ -1,5 +1,6 @@
 body{ /* lo sfondo della pagina è qui */ 
-    }
+    
+}
 
 #sfondo{
     background-image: linear-gradient(to right top, #d7d3ff, #cfd5ff, #c6d6ff, #bfd8ff, #b7d9ff, #b7d9ff, #b7d9ff, #b7d9ff, #bfd8ff, #c6d6ff, #cfd5ff, #d7d3ff);
@@ -47,4 +48,28 @@ body{ /* lo sfondo della pagina è qui */
 .blackpressed{
     clip: rect(262px, 50px, 522px, 0px); /* aggiungere traslazione di 262 px; */
     transform: translate(0,-262px);
+}
+
+#tasto1{
+    position:absolute; 
+    left: 136px; 
+    top:1325px;
+}
+
+#tasto2{
+    position:absolute; 
+    left: 136px; 
+    top:1510px;
+}
+
+#tasto1premuto{
+    position:absolute; 
+    left: 136px; 
+    top:1325px;
+}
+
+#tasto2premuto{
+    position:absolute; 
+    left: 136px; 
+    top:1510px;
 }
