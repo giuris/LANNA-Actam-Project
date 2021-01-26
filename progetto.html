@@ -33,7 +33,7 @@
             <img id="panel" src="zMedia/layout.png" style="position:absolute;">
             
             <div id="schermo">
-                <canvas id ="sample" width ="500px" height ="300px" style ="border:1px solid black"></canvas>
+                <canvas id ="sample" width ="500px" height ="300px" style ="border:1px solid black" class="dissolve"></canvas>
             </div>
             
             <div id="tastiera" style="position: absolute; left: 445px; top:1255px"></div>
@@ -92,7 +92,7 @@
                  this.classList.remove("white");
                  this.classList.add("whitepressed");
              });
-           
+            
             whites.forEach(x=> x.onmouseup = function(){
                 this.classList.remove("whitepressed");
                  this.classList.add("white");
@@ -144,25 +144,29 @@
             
         </script>
         
-        <!-- script per attivare/disattivare la modalità freq -->
+        <!-- script per attivare/disattivare la modalità freq (e il canvas)-->
         <script>
             //quando apro la pagina è nero
             let premutoFreq=0;
             
             let tasto2 = document.getElementById("tasto2");
             let tasto2premuto = document.getElementById("tasto2premuto");
+            let canvasPlot = document.getElementById("sample");
             
             tasto2.onclick = function(){
                 premutoFreq=1;
-                tasto2premuto.classList.toggle("dissolve");  
+                tasto2premuto.classList.toggle("dissolve"); 
+                canvasPlot.classList.toggle("dissolve");
             };
             
             tasto2premuto.onclick = function(){
                 premutoFreq=0;
-                tasto2premuto.classList.toggle("dissolve");  
+                tasto2premuto.classList.toggle("dissolve");
+                canvasPlot.classList.toggle("dissolve");
             };
             
         </script>
+        
            <!-- script per visualizzarte le sinusoidi sul canvas  -->
         <script>
 
@@ -281,7 +285,7 @@
                 d.stop();
               }, sustain)
                 
-               if(premutoNote!=0) {
+              if(premutoNote!=0) {
                 let nota = document.createElement("div");
                 nota.innerHTML = `
                 <div id="animazioneNota" >
@@ -332,7 +336,15 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+                }
+                let tastopremuto = document.getElementById("whiteKey5");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+            }
             
             function db_play() {
               let contenitoreNota = document.createElement("div");
@@ -401,7 +413,15 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+                }
+                let tastopremuto = document.getElementById("blackKey5");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+            }
             
             function d_play() {
               let contenitoreNota = document.createElement("div");
@@ -470,7 +490,15 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+            }
+                let tastopremuto = document.getElementById("whiteKey6");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+            }
             
             function eb_play() {
               let contenitoreNota = document.createElement("div");
@@ -539,7 +567,15 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+                }
+                let tastopremuto = document.getElementById("blackKey6");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+            }
             
             function e_play() {
               let contenitoreNota = document.createElement("div");
@@ -608,7 +644,17 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+            }
+                let tastopremuto = document.getElementById("whiteKey7");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+            }
+            
+            
             function f_play() {
               let contenitoreNota = document.createElement("div");
               c = new AudioContext();
@@ -675,8 +721,15 @@
                 /* partono 4 secondi al termine dei quali l'elemento note scompare*/
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
-                
-            }}
+            }
+                let tastopremuto = document.getElementById("whiteKey8");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+            }
             
             function gb_play() {
               let contenitoreNota = document.createElement("div");
@@ -745,7 +798,15 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+                }
+                let tastopremuto = document.getElementById("blackKey8");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+            }
             
             function g_play() {
               let contenitoreNota = document.createElement("div");
@@ -813,8 +874,15 @@
                 /* partono 4 secondi al termine dei quali l'elemento note scompare*/
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
-                
-            }}
+            }
+                let tastopremuto = document.getElementById("whiteKey9");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+            }
             
             function ab_play() {
               let contenitoreNota = document.createElement("div");
@@ -883,7 +951,15 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+                }
+                let tastopremuto = document.getElementById("blackKey9");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+            }
             
             function a_play() {
               let contenitoreNota = document.createElement("div");
@@ -952,7 +1028,15 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+            }
+                let tastopremuto = document.getElementById("whiteKey10");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+            }
             
             function bb_play() {
               let contenitoreNota = document.createElement("div");
@@ -1021,7 +1105,15 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+                }
+                let tastopremuto = document.getElementById("blackKey10");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+            }
             
             function b_play() {
               let contenitoreNota = document.createElement("div");
@@ -1090,7 +1182,15 @@
                 /* set time out e set attribute => displaynone o fading*/
                 setTimeout(function(){ contenitoreNota.remove();},5000);
                 
-            }}
+            }
+                let tastopremuto = document.getElementById("whiteKey11");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+            }
             
             
             /* function twoc_play() {
@@ -1169,7 +1269,8 @@
             whiteKey11.onclick = b_play;
             //whiteKey12.onclick = twoc_play;
         </script>
-    
+        
+
     
      
 
