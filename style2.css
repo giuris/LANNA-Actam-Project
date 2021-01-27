@@ -42,6 +42,55 @@ sottoforma di diamanti luminosi */
  
 }
 
+.arrow.Cred{
+    border-bottom: 36px solid red;
+     filter: drop-shadow(0 0 30px red);  
+}
+.arrow.Dbrown{
+    border-bottom: 36px solid #9e3600;
+     filter: drop-shadow(0 0 30px #9e3600);  
+}
+.arrow.Epinks{
+    border-bottom: 36px solid #ff8c69;
+     filter: drop-shadow(0 0 30px #ff8c69);  
+}
+.arrow.Fgreen{
+    border-bottom: 36px solid #03d836;
+     filter: drop-shadow(0 0 30px #03d836);  
+}
+.arrow.Gblue{
+    border-bottom: 36px solid #1f7ac7;
+     filter: drop-shadow(0 0 30px #1f7ac7);  
+}
+.arrow.Aviolet{
+    border-bottom: 36px solid #8a4dc7;
+     filter: drop-shadow(0 0 30px #8a4dc7);  
+}
+.arrow.Bpink{
+    border-bottom: 36px solid #ff99ab;
+     filter: drop-shadow(0 0 30px #ff99ab);  
+}
+.arrow.Db{
+    border-bottom: 36px solid #ff4d4d;
+     filter: drop-shadow(0 0 30px #ff4d4d);  
+}
+.arrow.Eb{
+    border-bottom: 36px solid #d64900;
+     filter: drop-shadow(0 0 30px #d64900);  
+}
+.arrow.Gb{
+    border-bottom: 36px solid #6dfd90;
+     filter: drop-shadow(0 0 30px #6dfd90);  
+}
+.arrow.Ab{
+    border-bottom: 36px solid #7bb7ea;
+     filter: drop-shadow(0 0 30px #7bb7ea);  
+}
+.arrow.Bb{
+    border-bottom: 36px solid #c2a2e2;
+     filter: drop-shadow(0 0 30px #c2a2e2);  
+}
+
  .arrow.down {
 	 transform: rotate(180deg);
 }
