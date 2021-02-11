@@ -14,6 +14,7 @@
         <!-- Carico il file style.css con i CSS -->
         <link href="style.css" rel="stylesheet" type="text/css">
         <link href="style2.css" rel="stylesheet" type="text/css">
+        <link href="style3.css" rel="stylesheet" type="text/css">
         
         <style>
         /* eventuali altri CSS possono essere inseriti qui*/
@@ -21,7 +22,7 @@
     
     </head>
 
-    <body> <!-- HTML e JAVASCRIPT -->
+    <body class="w3-animate-opacity"> <!-- HTML e JAVASCRIPT -->
         
         <!-- QUI SOTTO TUTTO L'HTML -->
         
@@ -1257,9 +1258,34 @@
             whiteKey11.onclick = b_play;
             //whiteKey12.onclick = twoc_play;
         </script>
-        
-
     
+        
+        <!-- NAVIGATORE -->
+        <div id="ruota">
+        <nav class="nav">
+  <input type="checkbox" class="nav__cb" id="menu-cb"/>
+  <div class="nav__content">
+    <ul class="nav__items">
+      <li class="nav__item">
+        <span class="nav__item-text">
+          Tutorial
+        </span>
+      </li>
+      <li class="nav__item">
+        <span class="nav__item-text">
+          Example
+        </span>
+      </li>
+      <li class="nav__item">
+        <span class="nav__item-text">
+          Contacts
+        </span>
+      </li>
+    </ul>
+  </div>
+  <label class="nav__btn" for="menu-cb"></label>
+</nav>
+   </div> 
      
 
     </body>

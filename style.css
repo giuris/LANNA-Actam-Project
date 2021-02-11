@@ -2,11 +2,11 @@ body{ /* lo sfondo della pagina è qui */
     
 }
 
-#sfondo{
-    background-image: linear-gradient(to right top, #d7d3ff, #cfd5ff, #c6d6ff, #bfd8ff, #b7d9ff, #b7d9ff, #b7d9ff, #b7d9ff, #bfd8ff, #c6d6ff, #cfd5ff, #d7d3ff);
+#sfondo{  
+    background-image: linear-gradient(to right bottom, #bbd2c5, #a3beb6, #8daba8, #79979a, #67838b, #5a7581, #4f6876, #455a6b, #3c4f63, #34445b, #2e3952, #292e49);    
     position:absolute;
     width: 2000px;
-    height: 820px;
+    height: 821px;
 }
 
 #container{ /* container principale || contenitore di tutto l'html */
