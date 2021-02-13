@@ -54,22 +54,60 @@ body{ /* lo sfondo della pagina è qui */
     position:absolute; 
     left: 136px; 
     top:1325px;
+    cursor: pointer;
 }
 
 #tasto2{
     position:absolute; 
     left: 136px; 
     top:1510px;
+    cursor: pointer;
 }
 
 #tasto1premuto{
     position:absolute; 
     left: 136px; 
     top:1325px;
+    cursor: pointer;
 }
 
 #tasto2premuto{
     position:absolute; 
     left: 136px; 
     top:1510px;
+    cursor: pointer;
+}
+
+.schermo2{
+    position:absolute;
+    top: 156px;
+    left: 81.4px;
+    width: 2712px;
+    height: 881px;
+    background-image: linear-gradient(to left top, #000000, #111111, #1c1c1b, #272625, #313130);
+    border-radius: 5px;
+}
+
+p{
+	 text-align: center;
+	 color: #9EB3BE;
+	 font-size: 68px;
+	 line-height: 90px;
+	 font-family: Helvetica, Arial, sans-serif;
+	 font-weight: bold;
+}
+
+h1{
+    cursor: pointer;
+    text-align: right;
+    color: #9EB3BE;
+    font-size: 40px;
+    line-height: 90px;
+    font-family: serif;
+    font-weight: bold;
+    padding-right: 40px;
+    
+   
+    text-shadow: 4px 4px 10px gray;
+    letter-spacing: 2px;
 }
