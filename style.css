@@ -111,3 +111,26 @@ h1{
     text-shadow: 4px 4px 10px gray;
     letter-spacing: 2px;
 }
+
+
+.TRIADE{
+    width:170px;
+    height:50px;
+    border-radius:4px;
+    background-image: linear-gradient(to top, #537eaf, #5b85b5, #638cba, #6b93c0, #739ac6, #7aa0ca, #81a5ce, #88abd2, #8fb0d5, #96b6d9, #9ebbdc, #a5c1e0);
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    color: 1px solid black; 
+    font-family: 'Nunito', sans-serif;
+    margin-right: 34px;
+    box-shadow: 1px 1px;
+}
+
+#triadi{
+    position: absolute;
+    display: inline-flex;
+    transform: scale(2);
+    top: 1121px;
+    left: 547px;
+}
