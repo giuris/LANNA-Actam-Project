@@ -7,6 +7,9 @@
         <!-- link per attivare le animazioni W3 -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+        
         
         
         <!-- QUI SOTTO TUTTI I CSS -->
@@ -58,13 +61,13 @@
                 <p> Testo contacts </p>
             </div>
             
-            <!--
-            <div id="triadi">
-              <button id="TriadeM">Triade Maggiore</button>
-              <button id="TriadeMin">Triade Minore</button>
-              <button id="TriadeDim">Triade Diminuita</button>
-              <button id="TriadeAug">Triade Aumentata</button>
-            </div> -->
+            
+            <span id="triadi">
+              <button id="TriadeM" class="TRIADE">Triade Maggiore</button>
+              <button id="TriadeMin" class="TRIADE">Triade Minore</button>
+              <button id="TriadeDim" class="TRIADE">Triade Diminuita</button>
+              <button id="TriadeAug" class="TRIADE">Triade Aumentata</button>
+            </span>
             
             
             <div id="tastiera" style="position: absolute; left: 445px; top:1255px"></div>
@@ -294,23 +297,23 @@
 
         </script>
     
-        <!-- script per interagire con la tastiera (ANIMAZIONI NOTE) -->
+                <!-- script per interagire con la tastiera (ANIMAZIONI NOTE) -->
         <script>
             let animazioneNota = document.getElementById("divanimazioneNota");
             const sustain = 500;
         
-function playNote(n) {
-  c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (n)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-              setTimeout (function(){
-                d.stop();
-              }, sustain);
-  return freq;
+            function playNote(n) {
+                c = new AudioContext();
+                  c.createOscillator();
+                  var d = c.createOscillator();
+                  d.connect(c.destination);
+                  const freq = Math.pow(2, (n)/12)*440;
+                  d.start();
+                  d.frequency.value = freq;
+                  setTimeout (function(){
+                 d.stop();
+                  }, sustain);
+                return freq;
 }
 /* definisco le funzioni che faranno suonare le note riferendomi al modello generale playNote*/
     
