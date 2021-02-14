@@ -296,19 +296,47 @@
     
         <!-- script per interagire con la tastiera (ANIMAZIONI NOTE) -->
         <script>
+            
             let animazioneNota = document.getElementById("divanimazioneNota");
             const sustain = 500;
-           
             
-            function c_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
+            function playNote(n) {
+  c = new AudioContext();
               c.createOscillator();
               var d = c.createOscillator();
               d.connect(c.destination);
-              const freq = Math.pow(2, (-9)/12)*440;
+              const freq = Math.pow(2, (n)/12)*440;
               d.start();
               d.frequency.value = freq;
+              setTimeout (function(){
+                d.stop();
+              }, sustain);
+  return freq;
+}
+           
+            
+            
+              
+              /* definisco le funzioni che faranno suonare le note riferendomi al modello generale playNote*/
+            
+    function c_play(){
+    let contenitoreNota = document.createElement("div");
+    var c = playNote(-9); 
+    if ( premutoTM == 1) {
+      TriadeMaggiore(c);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(c);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(c);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(c);
+            premutoTA = 0;}
+
               if(premutoFreq!=0){
                 FreqNote(d.frequency.value);
               };
@@ -323,38 +351,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Cred up outer outer-18"></div>
-                <div class="arrow  Cred down outer outer-17"></div>
-                <div class="arrow Cred  up outer outer-16"></div>
-                <div class="arrow Cred  down outer outer-15"></div>
-                <div class="arrow Cred  up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Cred  up outer outer-1"></div>
-                <div class="arrow Cred  down outer outer-2"></div>
-                <div class="arrow  Cred up inner inner-6"></div>
-                <div class="arrow Cred  down inner inner-5"></div>
-                <div class="arrow Cred  up inner inner-4"></div>
-                <div class="arrow Cred  down outer outer-13"></div>
-                <div class="arrow Cred  up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Cred  down outer outer-3"></div>
-                <div class="arrow Cred  up outer outer-4"></div>
-                <div class="arrow Cred  down inner inner-1"></div>
-                <div class="arrow Cred  up inner inner-2"></div>
-                <div class="arrow Cred  down inner inner-3"></div>
-                <div class="arrow Cred  up outer outer-11"></div>
-                <div class="arrow Cred  down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Cred  down outer outer-5"></div>
-                <div class="arrow Cred  up outer outer-6"></div>
-                <div class="arrow Cred  down outer outer-7"></div>
-                <div class="arrow Cred  up outer outer-8"></div>
-                <div class="arrow Cred  down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">C</h1>
                 </main>
                 </div>       `;
@@ -374,23 +403,29 @@
                     tastopremuto.classList.remove("whitepressed");
                     tastopremuto.classList.add("white");
                 },700);
+         return c;
             }
             
             function db_play() {
               let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (-8)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+              function db_play(){
+    var db = playNote(-8);
+     if ( premutoTM == 1) {
+      TriadeMaggiore(db);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(db);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(db);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(db);
+            premutoTA = 0;}
+    return db;
+};
                 
                 if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -399,38 +434,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Db up outer outer-18"></div>
-                <div class="arrow Db  down outer outer-17"></div>
-                <div class="arrow Db  up outer outer-16"></div>
-                <div class="arrow Db  down outer outer-15"></div>
-                <div class="arrow Db  up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Db  up outer outer-1"></div>
-                <div class="arrow Db  down outer outer-2"></div>
-                <div class="arrow Db  up inner inner-6"></div>
-                <div class="arrow Db  down inner inner-5"></div>
-                <div class="arrow Db  up inner inner-4"></div>
-                <div class="arrow Db  down outer outer-13"></div>
-                <div class="arrow Db  up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Db  down outer outer-3"></div>
-                <div class="arrow Db  up outer outer-4"></div>
-                <div class="arrow Db  down inner inner-1"></div>
-                <div class="arrow Db  up inner inner-2"></div>
-                <div class="arrow Db  down inner inner-3"></div>
-                <div class="arrow Db  up outer outer-11"></div>
-                <div class="arrow Db  down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Db  down outer outer-5"></div>
-                <div class="arrow Db  up outer outer-6"></div>
-                <div class="arrow Db  down outer outer-7"></div>
-                <div class="arrow Db  up outer outer-8"></div>
-                <div class="arrow Db  down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">D<sup>b</sup></h1>
                 </main>
                 </div>       `;
@@ -452,21 +488,24 @@
                 },700);
             }
             
-            function d_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (-7)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+            function d_play(){
+    var d = playNote(-7);
+      if ( premutoTM == 1) {
+      TriadeMaggiore(d);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(d);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(d);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(d);
+            premutoTA = 0;}
+    return d;
+};
                 
                if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -475,38 +514,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Dbrown up outer outer-18"></div>
-                <div class="arrow Dbrown down outer outer-17"></div>
-                <div class="arrow Dbrown up outer outer-16"></div>
-                <div class="arrow Dbrown down outer outer-15"></div>
-                <div class="arrow Dbrown up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Dbrown up outer outer-1"></div>
-                <div class="arrow Dbrown down outer outer-2"></div>
-                <div class="arrow Dbrown up inner inner-6"></div>
-                <div class="arrow Dbrown down inner inner-5"></div>
-                <div class="arrow Dbrown up inner inner-4"></div>
-                <div class="arrow Dbrown down outer outer-13"></div>
-                <div class="arrow Dbrown up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Dbrown down outer outer-3"></div>
-                <div class="arrow Dbrown up outer outer-4"></div>
-                <div class="arrow Dbrown down inner inner-1"></div>
-                <div class="arrow Dbrown up inner inner-2"></div>
-                <div class="arrow Dbrown down inner inner-3"></div>
-                <div class="arrow Dbrown up outer outer-11"></div>
-                <div class="arrow Dbrown down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Dbrown down outer outer-5"></div>
-                <div class="arrow Dbrown up outer outer-6"></div>
-                <div class="arrow Dbrown down outer outer-7"></div>
-                <div class="arrow Dbrown up outer outer-8"></div>
-                <div class="arrow Dbrown down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">D</h1>
                 </main>
                 </div>       `;
@@ -528,22 +568,25 @@
                 },700);
             }
             
-            function eb_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (-6)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
-                
+            function eb_play(){
+   var eb = playNote(-6);
+     if ( premutoTM == 1) {
+      TriadeMaggiore(eb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(eb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(eb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(eb);
+            premutoTA = 0;}
+      return eb;
+  
+};
               if(premutoNote!=0) {
                 let nota = document.createElement("div");
                 nota.innerHTML = `
@@ -551,38 +594,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Eb up outer outer-18"></div>
-                <div class="arrow Eb down outer outer-17"></div>
-                <div class="arrow Eb up outer outer-16"></div>
-                <div class="arrow Eb down outer outer-15"></div>
-                <div class="arrow Eb up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Eb up outer outer-1"></div>
-                <div class="arrow Eb down outer outer-2"></div>
-                <div class="arrow Eb up inner inner-6"></div>
-                <div class="arrow Eb down inner inner-5"></div>
-                <div class="arrow Eb up inner inner-4"></div>
-                <div class="arrow Eb down outer outer-13"></div>
-                <div class="arrow Eb up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Eb down outer outer-3"></div>
-                <div class="arrow Eb up outer outer-4"></div>
-                <div class="arrow Eb down inner inner-1"></div>
-                <div class="arrow Eb up inner inner-2"></div>
-                <div class="arrow Eb down inner inner-3"></div>
-                <div class="arrow Eb up outer outer-11"></div>
-                <div class="arrow Eb down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Eb down outer outer-5"></div>
-                <div class="arrow Eb up outer outer-6"></div>
-                <div class="arrow Eb down outer outer-7"></div>
-                <div class="arrow Eb up outer outer-8"></div>
-                <div class="arrow Eb down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">E<sup>b</sup></h1>
                 </main>
                 </div>       `;
@@ -604,21 +648,24 @@
                 },700);
             }
             
-            function e_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (-5)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+            function e_play(){
+    var e = playNote(-5);
+     if ( premutoTM == 1) {
+      TriadeMaggiore(e);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(e);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(e);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(e);
+            premutoTA = 0;}
+      return e;
+};
                 
                if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -627,38 +674,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Epinks up outer outer-18"></div>
-                <div class="arrow Epinks  down outer outer-17"></div>
-                <div class="arrow  Epinks up outer outer-16"></div>
-                <div class="arrow  Epinks down outer outer-15"></div>
-                <div class="arrow Epinks  up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Epinks  up outer outer-1"></div>
-                <div class="arrow  Epinks down outer outer-2"></div>
-                <div class="arrow  Epinks up inner inner-6"></div>
-                <div class="arrow Epinks  down inner inner-5"></div>
-                <div class="arrow Epinks  up inner inner-4"></div>
-                <div class="arrow Epinks  down outer outer-13"></div>
-                <div class="arrow Epinks  up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Epinks  down outer outer-3"></div>
-                <div class="arrow Epinks  up outer outer-4"></div>
-                <div class="arrow Epinks  down inner inner-1"></div>
-                <div class="arrow Epinks  up inner inner-2"></div>
-                <div class="arrow Epinks  down inner inner-3"></div>
-                <div class="arrow Epinks  up outer outer-11"></div>
-                <div class="arrow Epinks  down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Epinks  down outer outer-5"></div>
-                <div class="arrow Epinks  up outer outer-6"></div>
-                <div class="arrow Epinks  down outer outer-7"></div>
-                <div class="arrow Epinks  up outer outer-8"></div>
-                <div class="arrow Epinks  down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">E</h1>
                 </main>
                 </div>       `;
@@ -681,21 +729,24 @@
             }
             
             
-            function f_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (-4)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+            function f_play(){
+    var f = playNote(-4);
+      if ( premutoTM == 1) {
+      TriadeMaggiore(f);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(f);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(f);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(f);
+            premutoTA = 0;}
+      return f;
+};
                 
                if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -704,38 +755,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Fgreen up outer outer-18"></div>
-                <div class="arrow Fgreen down outer outer-17"></div>
-                <div class="arrow Fgreen up outer outer-16"></div>
-                <div class="arrow Fgreen down outer outer-15"></div>
-                <div class="arrow Fgreen up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Fgreen up outer outer-1"></div>
-                <div class="arrow Fgreen down outer outer-2"></div>
-                <div class="arrow Fgreen up inner inner-6"></div>
-                <div class="arrow Fgreen down inner inner-5"></div>
-                <div class="arrow Fgreen up inner inner-4"></div>
-                <div class="arrow Fgreen down outer outer-13"></div>
-                <div class="arrow Fgreen up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Fgreen down outer outer-3"></div>
-                <div class="arrow Fgreen up outer outer-4"></div>
-                <div class="arrow Fgreen down inner inner-1"></div>
-                <div class="arrow Fgreen up inner inner-2"></div>
-                <div class="arrow Fgreen down inner inner-3"></div>
-                <div class="arrow Fgreen up outer outer-11"></div>
-                <div class="arrow Fgreen down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Fgreen down outer outer-5"></div>
-                <div class="arrow Fgreen up outer outer-6"></div>
-                <div class="arrow Fgreen down outer outer-7"></div>
-                <div class="arrow Fgreen up outer outer-8"></div>
-                <div class="arrow Fgreen down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">F</h1>
                 </main>
                 </div>       `;
@@ -756,21 +808,24 @@
                 },700);
             }
             
-            function gb_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (-3)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+            function gb_play(){
+    var gb = playNote(-3);
+      if ( premutoTM == 1) {
+      TriadeMaggiore(gb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(gb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(gb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(gb);
+            premutoTA = 0;}
+      return gb;
+};
                 
                if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -779,38 +834,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Gb up outer outer-18"></div>
-                <div class="arrow Gb down outer outer-17"></div>
-                <div class="arrow Gb up outer outer-16"></div>
-                <div class="arrow Gb down outer outer-15"></div>
-                <div class="arrow Gb up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Gb up outer outer-1"></div>
-                <div class="arrow Gb down outer outer-2"></div>
-                <div class="arrow Gb up inner inner-6"></div>
-                <div class="arrow Gb down inner inner-5"></div>
-                <div class="arrow Gb up inner inner-4"></div>
-                <div class="arrow Gb down outer outer-13"></div>
-                <div class="arrow Gb up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Gb down outer outer-3"></div>
-                <div class="arrow Gb up outer outer-4"></div>
-                <div class="arrow Gb down inner inner-1"></div>
-                <div class="arrow Gb up inner inner-2"></div>
-                <div class="arrow Gb down inner inner-3"></div>
-                <div class="arrow Gb up outer outer-11"></div>
-                <div class="arrow Gb down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Gb down outer outer-5"></div>
-                <div class="arrow Gb up outer outer-6"></div>
-                <div class="arrow Gb down outer outer-7"></div>
-                <div class="arrow Gb up outer outer-8"></div>
-                <div class="arrow Gb down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">G<sup>b</sup></h1>
                 </main>
                 </div>       `;
@@ -832,21 +888,23 @@
                 },700);
             }
             
-            function g_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (-2)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+            function g_play(){
+    var g = playNote(-2);
+      if ( premutoTM == 1) {
+      TriadeMaggiore(g);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(g);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(g);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(g);
+            premutoTA = 0;}
+      return g; };
                 
                 if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -855,38 +913,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Gblue up outer outer-18"></div>
-                <div class="arrow Gblue down outer outer-17"></div>
-                <div class="arrow Gblue up outer outer-16"></div>
-                <div class="arrow Gblue down outer outer-15"></div>
-                <div class="arrow Gblue up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Gblue up outer outer-1"></div>
-                <div class="arrow Gblue down outer outer-2"></div>
-                <div class="arrow Gblue up inner inner-6"></div>
-                <div class="arrow Gblue down inner inner-5"></div>
-                <div class="arrow Gblue up inner inner-4"></div>
-                <div class="arrow Gblue down outer outer-13"></div>
-                <div class="arrow Gblue up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Gblue down outer outer-3"></div>
-                <div class="arrow Gblue up outer outer-4"></div>
-                <div class="arrow Gblue down inner inner-1"></div>
-                <div class="arrow Gblue up inner inner-2"></div>
-                <div class="arrow Gblue down inner inner-3"></div>
-                <div class="arrow Gblue up outer outer-11"></div>
-                <div class="arrow Gblue down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Gblue down outer outer-5"></div>
-                <div class="arrow Gblue up outer outer-6"></div>
-                <div class="arrow Gblue down outer outer-7"></div>
-                <div class="arrow Gblue up outer outer-8"></div>
-                <div class="arrow Gblue down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">G</h1>
                 </main>
                 </div>       `;
@@ -907,21 +966,24 @@
                 },700);
             }
             
-            function ab_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (-1)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+            function ab_play(){
+    var ab = playNote(-1);
+      if ( premutoTM == 1) {
+      TriadeMaggiore(ab);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(ab);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(ab);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(ab);
+            premutoTA = 0;}
+      return ab;
+};
                 
                if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -930,38 +992,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Ab up outer outer-18"></div>
-                <div class="arrow Ab down outer outer-17"></div>
-                <div class="arrow Ab up outer outer-16"></div>
-                <div class="arrow Ab down outer outer-15"></div>
-                <div class="arrow Ab up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Ab up outer outer-1"></div>
-                <div class="arrow Ab down outer outer-2"></div>
-                <div class="arrow Ab up inner inner-6"></div>
-                <div class="arrow Ab down inner inner-5"></div>
-                <div class="arrow Ab up inner inner-4"></div>
-                <div class="arrow Ab down outer outer-13"></div>
-                <div class="arrow Ab up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Ab down outer outer-3"></div>
-                <div class="arrow Ab up outer outer-4"></div>
-                <div class="arrow Ab down inner inner-1"></div>
-                <div class="arrow Ab up inner inner-2"></div>
-                <div class="arrow Ab down inner inner-3"></div>
-                <div class="arrow Ab up outer outer-11"></div>
-                <div class="arrow Ab down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Ab down outer outer-5"></div>
-                <div class="arrow Ab up outer outer-6"></div>
-                <div class="arrow Ab down outer outer-7"></div>
-                <div class="arrow Ab up outer outer-8"></div>
-                <div class="arrow Ab down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">A<sup>b</sup></h1>
                 </main>
                 </div>       `;
@@ -983,21 +1046,24 @@
                 },700);
             }
             
-            function a_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (0)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+            function a_play(){
+    var a = playNote(0);
+     if ( premutoTM == 1) {
+      TriadeMaggiore(a);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(a);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(a);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(a);
+            premutoTA = 0;}
+      return a;
+};
                 
                 if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -1006,38 +1072,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Aviolet Ared up outer outer-18"></div>
-                <div class="arrow Aviolet Aviolet Ared down outer outer-17"></div>
-                <div class="arrow Aviolet Ared up outer outer-16"></div>
-                <div class="arrow Aviolet Ared down outer outer-15"></div>
-                <div class="arrow Aviolet Ared up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Aviolet Ared up outer outer-1"></div>
-                <div class="arrow Aviolet Ared down outer outer-2"></div>
-                <div class="arrow Aviolet Ared up inner inner-6"></div>
-                <div class="arrow Aviolet Ared down inner inner-5"></div>
-                <div class="arrow Aviolet Ared up inner inner-4"></div>
-                <div class="arrow Aviolet Ared down outer outer-13"></div>
-                <div class="arrow Aviolet Ared up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Aviolet Ared down outer outer-3"></div>
-                <div class="arrow Aviolet Ared up outer outer-4"></div>
-                <div class="arrow Aviolet Ared down inner inner-1"></div>
-                <div class="arrow Aviolet Ared up inner inner-2"></div>
-                <div class="arrow Aviolet Ared down inner inner-3"></div>
-                <div class="arrow Aviolet Ared up outer outer-11"></div>
-                <div class="arrow Aviolet Ared down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Aviolet Ared down outer outer-5"></div>
-                <div class="arrow Aviolet Ared up outer outer-6"></div>
-                <div class="arrow Aviolet Ared down outer outer-7"></div>
-                <div class="arrow Aviolet Ared up outer outer-8"></div>
-                <div class="arrow Aviolet Ared down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">A</h1>
                 </main>
                 </div>       `;
@@ -1059,21 +1126,24 @@
                 },700);
             }
             
-            function bb_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (1)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+            function bb_play(){
+    var bb= playNote(1);
+     if ( premutoTM == 1) {
+      TriadeMaggiore(bb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(bb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(bb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(bb);
+            premutoTA = 0;}
+      return bb;
+};
                 
                 if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -1082,38 +1152,39 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Bb up outer outer-18"></div>
-                <div class="arrow Bb  down outer outer-17"></div>
-                <div class="arrow Bb  up outer outer-16"></div>
-                <div class="arrow Bb  down outer outer-15"></div>
-                <div class="arrow Bb  up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Bb  up outer outer-1"></div>
-                <div class="arrow Bb  down outer outer-2"></div>
-                <div class="arrow Bb  up inner inner-6"></div>
-                <div class="arrow Bb  down inner inner-5"></div>
-                <div class="arrow Bb  up inner inner-4"></div>
-                <div class="arrow Bb  down outer outer-13"></div>
-                <div class="arrow Bb  up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Bb  down outer outer-3"></div>
-                <div class="arrow Bb  up outer outer-4"></div>
-                <div class="arrow Bb  down inner inner-1"></div>
-                <div class="arrow Bb  up inner inner-2"></div>
-                <div class="arrow Bb  down inner inner-3"></div>
-                <div class="arrow Bb  up outer outer-11"></div>
-                <div class="arrow Bb  down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Bb  down outer outer-5"></div>
-                <div class="arrow Bb  up outer outer-6"></div>
-                <div class="arrow Bb  down outer outer-7"></div>
-                <div class="arrow Bb  up outer outer-8"></div>
-                <div class="arrow Bb  down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">B<sup>b</sup></h1>
                 </main>
                 </div>       `;
@@ -1135,21 +1206,24 @@
                 },700);
             }
             
-            function b_play() {
-              let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (2)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-                if(premutoFreq!=0){
-                FreqNote(freq);
-              }
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
+            function b_play(){
+    var b= playNote(2);
+   if ( premutoTM == 1) {
+      TriadeMaggiore(b);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(b);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(b);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(b);
+            premutoTA = 0;}
+      return b;
+};
                 
                 if(premutoNote!=0) {
                 let nota = document.createElement("div");
@@ -1158,41 +1232,42 @@
                 <main class="NotaLuce">
                 <div class="dank-ass-loader">
                 <div class="row">
-                <div class="arrow Bpink up outer outer-18"></div>
-                <div class="arrow Bpink  down outer outer-17"></div>
-                <div class="arrow Bpink  up outer outer-16"></div>
-                <div class="arrow Bpink  down outer outer-15"></div>
-                <div class="arrow Bpink  up outer outer-14"></div>
+                <div class="arrow up outer outer-18"></div>
+                <div class="arrow down outer outer-17"></div>
+                <div class="arrow up outer outer-16"></div>
+                <div class="arrow down outer outer-15"></div>
+                <div class="arrow up outer outer-14"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Bpink  up outer outer-1"></div>
-                <div class="arrow Bpink  down outer outer-2"></div>
-                <div class="arrow Bpink  up inner inner-6"></div>
-                <div class="arrow Bpink  down inner inner-5"></div>
-                <div class="arrow Bpink  up inner inner-4"></div>
-                <div class="arrow Bpink  down outer outer-13"></div>
-                <div class="arrow Bpink  up outer outer-12"></div>
+                <div class="arrow up outer outer-1"></div>
+                <div class="arrow down outer outer-2"></div>
+                <div class="arrow up inner inner-6"></div>
+                <div class="arrow down inner inner-5"></div>
+                <div class="arrow up inner inner-4"></div>
+                <div class="arrow down outer outer-13"></div>
+                <div class="arrow up outer outer-12"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Bpink  down outer outer-3"></div>
-                <div class="arrow Bpink  up outer outer-4"></div>
-                <div class="arrow Bpink  down inner inner-1"></div>
-                <div class="arrow Bpink  up inner inner-2"></div>
-                <div class="arrow Bpink  down inner inner-3"></div>
-                <div class="arrow Bpink  up outer outer-11"></div>
-                <div class="arrow Bpink  down outer outer-10"></div>
+                <div class="arrow down outer outer-3"></div>
+                <div class="arrow up outer outer-4"></div>
+                <div class="arrow down inner inner-1"></div>
+                <div class="arrow up inner inner-2"></div>
+                <div class="arrow down inner inner-3"></div>
+                <div class="arrow up outer outer-11"></div>
+                <div class="arrow down outer outer-10"></div>
                 </div>
                 <div class="row">
-                <div class="arrow Bpink  down outer outer-5"></div>
-                <div class="arrow Bpink  up outer outer-6"></div>
-                <div class="arrow Bpink  down outer outer-7"></div>
-                <div class="arrow Bpink  up outer outer-8"></div>
-                <div class="arrow Bpink  down outer outer-9"></div>
+                <div class="arrow down outer outer-5"></div>
+                <div class="arrow up outer outer-6"></div>
+                <div class="arrow down outer outer-7"></div>
+                <div class="arrow up outer outer-8"></div>
+                <div class="arrow down outer outer-9"></div>
                 </div>
                 </div>
+                
                 <h1 class="nomeNota">B</h1>
                 </main>
-                </div>        `;
+                </div>       `;
                 
                 
                 contenitoreNota.append(nota);
@@ -1288,7 +1363,6 @@
             whiteKey11.onclick = b_play;
             //whiteKey12.onclick = twoc_play;
         </script>
-    
         
         
         
