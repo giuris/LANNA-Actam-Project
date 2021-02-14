@@ -1437,7 +1437,70 @@
         
         <!-- Script per triadi -->
         <script>
-            
+          /* script per generare gli intervalli a partire da qualunque nota: */
+    
+function terzaMaggiore(p) {
+var freq1 = Math.pow(2, (4)/12)*p;
+var n = 12*Math.log2((freq1)/440);
+return n;
+}
+function quintaGiusta(p) {
+var freq2 = Math.pow(2, (7)/12)*p;
+var n = 12*Math.log2((freq2)/440);
+return n;
+}
+function terzaMinore(p) {
+var freq1 = Math.pow(2, (3)/12)*p;
+var n = 12*Math.log2((freq1)/440);
+return n;
+}
+function quintaDiminuita(p) {
+var freq2 = Math.pow(2, (6)/12)*p;
+var n = 12*Math.log2((freq2)/440);
+return n;
+}
+function quintaEccedente(p) {
+var freq2 = Math.pow(2, (8)/12)*p;
+var n = 12*Math.log2((freq2)/440);
+return n;
+}
+
+/* script per generare le triadi a partire da qualunque fondamentale */
+
+function TriadeMaggiore(freq) {
+n = 12*Math.log2((freq)/440);
+c = playNote(n);
+e = terzaMaggiore(c);
+g = quintaGiusta(c);
+setTimeout(function(){playNote(e)}, 1000);
+setTimeout(function(){playNote(g)}, 2000);
+}
+
+function TriadeMinore(freq) {
+n = 12*Math.log2((freq)/440);
+c = playNote(n);
+e = terzaMinore(c);
+g = quintaGiusta(c);
+setTimeout(function(){playNote(e)}, 1000);
+setTimeout(function(){playNote(g)}, 2000);
+}
+
+function TriadeDiminuita(freq) {
+n = 12*Math.log2((freq)/440);
+c = playNote(n);
+e = terzaMinore(c);
+g = quintaDiminuita(c);
+setTimeout(function(){playNote(e)}, 1000);
+setTimeout(function(){playNote(g)}, 2000);
+}
+function TriadeAumentata(freq) {
+n = 12*Math.log2((freq)/440);
+c = playNote(n);
+e = terzaMaggiore(c);
+g = quintaEccedente(c);
+setTimeout(function(){playNote(e)}, 1000);
+setTimeout(function(){playNote(g)}, 2000);
+}  
         
         </script>
 
