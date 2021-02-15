@@ -48,12 +48,12 @@
                 </div>
                 <p> TUTORIAL <br><br> </p>
                     <h5>
-                        The keyboard has different functionality, first of all you can play with it in two different ways: <br>
+                        The keyboard has different functionalities, first of all you can play in two different ways: <br>
                         • use your mouse! <br>
                         • use your pc keyboard! <br>
                         If you pay attention, in the lower left corner there are two buttons, NOTE and FREQ. <br>
                         • If you press NOTE you’ll be able to view the name of the note you are playing and its associated color. <br>
-                        • If you press FREQ you can see the swing of the pure tone related to the note you are playing.
+                        • If you press FREQ you can see the swing of the pure tone related to the note you are just playing.
                     </h5>
             </div>
             
@@ -64,7 +64,7 @@
                 <p> EXAMPLE <br><br> </p>
                 <h6>
                     A triad is a chord with three notes that can be set as thirds because their pitches work together. <br>
-                    If you want an example of Major Triad, press the corresponding button and after choose a note and play it. The keyboard allows you to listen the third and the fifth notes associated to the one you’re playing. <br>
+                    If you want an example of Major Triad, press the corresponding button and choose a note and play it. The keyboard allows you to listen the third and the fifth notes associated to the one you’re playing. <br>
                     • Press Major Triad and, after, press the note D. The chord played is called Dmajor. <br>
                     • Press Minor Triad and, after, press the note D. The chord played is called Dmajor. <br>
                     • Press Diminished Triad and, after, press the note D. The chord played is called Dmajor. <br>
@@ -84,7 +84,7 @@
                         Renzi Annafelicia -- anna@lannapiano.com <br>
                         Risitano Giuseppe -- giuseppe@lannapiano.com <br><br>
 
-                        For any inquiry feel free to contact  info@lannapiano.com
+                        For any inquiry feel free to contact us @ info@lannapiano.com
                     </h5>
             </div>
             
@@ -323,8 +323,7 @@
             }
 
         </script>
-    
-                <!-- script per interagire con la tastiera (ANIMAZIONI NOTE) -->
+              <!-- script per interagire con la tastiera (ANIMAZIONI NOTE) -->
         <script>
             let animazioneNota = document.getElementById("divanimazioneNota");
             const sustain = 500;
@@ -344,7 +343,577 @@
 }
 /* definisco le funzioni che faranno suonare le note riferendomi al modello generale playNote*/
     
-    
+    /* mappa */
+        function lf_play() {
+              let contenitoreNota = document.createElement("div");
+              var f = playNote(-16);
+      
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Fgreen up outer outer-18"></div>
+                <div class="arrow Fgreen down outer outer-17"></div>
+                <div class="arrow Fgreen up outer outer-16"></div>
+                <div class="arrow Fgreen down outer outer-15"></div>
+                <div class="arrow Fgreen up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Fgreen up outer outer-1"></div>
+                <div class="arrow Fgreen down outer outer-2"></div>
+                <div class="arrow Fgreen up inner inner-6"></div>
+                <div class="arrow Fgreen down inner inner-5"></div>
+                <div class="arrow Fgreen up inner inner-4"></div>
+                <div class="arrow Fgreen down outer outer-13"></div>
+                <div class="arrow Fgreen up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Fgreen down outer outer-3"></div>
+                <div class="arrow Fgreen up outer outer-4"></div>
+                <div class="arrow Fgreen down inner inner-1"></div>
+                <div class="arrow Fgreen up inner inner-2"></div>
+                <div class="arrow Fgreen down inner inner-3"></div>
+                <div class="arrow Fgreen up outer outer-11"></div>
+                <div class="arrow Fgreen down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Fgreen down outer outer-5"></div>
+                <div class="arrow Fgreen up outer outer-6"></div>
+                <div class="arrow Fgreen down outer outer-7"></div>
+                <div class="arrow Fgreen up outer outer-8"></div>
+                <div class="arrow Fgreen down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">F</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+                let tastopremuto = document.getElementById("whiteKey8");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(f);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(f);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(f);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(f);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(f);
+            premutoTA = 0;}
+            }
+            
+            function lgb_play() {
+              let contenitoreNota = document.createElement("div");
+             var gb = playNote(-15);
+      
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Gb up outer outer-18"></div>
+                <div class="arrow Gb down outer outer-17"></div>
+                <div class="arrow Gb up outer outer-16"></div>
+                <div class="arrow Gb down outer outer-15"></div>
+                <div class="arrow Gb up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gb up outer outer-1"></div>
+                <div class="arrow Gb down outer outer-2"></div>
+                <div class="arrow Gb up inner inner-6"></div>
+                <div class="arrow Gb down inner inner-5"></div>
+                <div class="arrow Gb up inner inner-4"></div>
+                <div class="arrow Gb down outer outer-13"></div>
+                <div class="arrow Gb up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gb down outer outer-3"></div>
+                <div class="arrow Gb up outer outer-4"></div>
+                <div class="arrow Gb down inner inner-1"></div>
+                <div class="arrow Gb up inner inner-2"></div>
+                <div class="arrow Gb down inner inner-3"></div>
+                <div class="arrow Gb up outer outer-11"></div>
+                <div class="arrow Gb down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gb down outer outer-5"></div>
+                <div class="arrow Gb up outer outer-6"></div>
+                <div class="arrow Gb down outer outer-7"></div>
+                <div class="arrow Gb up outer outer-8"></div>
+                <div class="arrow Gb down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">G<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey8");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(gb);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(gb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(gb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(gb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(gb);
+            premutoTA = 0;}
+            }
+            
+            function lg_play() {
+              let contenitoreNota = document.createElement("div");
+            var g = playNote(-14);
+      
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Gblue up outer outer-18"></div>
+                <div class="arrow Gblue down outer outer-17"></div>
+                <div class="arrow Gblue up outer outer-16"></div>
+                <div class="arrow Gblue down outer outer-15"></div>
+                <div class="arrow Gblue up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gblue up outer outer-1"></div>
+                <div class="arrow Gblue down outer outer-2"></div>
+                <div class="arrow Gblue up inner inner-6"></div>
+                <div class="arrow Gblue down inner inner-5"></div>
+                <div class="arrow Gblue up inner inner-4"></div>
+                <div class="arrow Gblue down outer outer-13"></div>
+                <div class="arrow Gblue up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gblue down outer outer-3"></div>
+                <div class="arrow Gblue up outer outer-4"></div>
+                <div class="arrow Gblue down inner inner-1"></div>
+                <div class="arrow Gblue up inner inner-2"></div>
+                <div class="arrow Gblue down inner inner-3"></div>
+                <div class="arrow Gblue up outer outer-11"></div>
+                <div class="arrow Gblue down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gblue down outer outer-5"></div>
+                <div class="arrow Gblue up outer outer-6"></div>
+                <div class="arrow Gblue down outer outer-7"></div>
+                <div class="arrow Gblue up outer outer-8"></div>
+                <div class="arrow Gblue down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">G</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+                let tastopremuto = document.getElementById("whiteKey9");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(g);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(g);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(g);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(g);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(g);
+            premutoTA = 0;}
+            }
+            
+            function lab_play() {
+              let contenitoreNota = document.createElement("div");
+              var ab = playNote(-13);
+      
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Ab up outer outer-18"></div>
+                <div class="arrow Ab down outer outer-17"></div>
+                <div class="arrow Ab up outer outer-16"></div>
+                <div class="arrow Ab down outer outer-15"></div>
+                <div class="arrow Ab up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Ab up outer outer-1"></div>
+                <div class="arrow Ab down outer outer-2"></div>
+                <div class="arrow Ab up inner inner-6"></div>
+                <div class="arrow Ab down inner inner-5"></div>
+                <div class="arrow Ab up inner inner-4"></div>
+                <div class="arrow Ab down outer outer-13"></div>
+                <div class="arrow Ab up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Ab down outer outer-3"></div>
+                <div class="arrow Ab up outer outer-4"></div>
+                <div class="arrow Ab down inner inner-1"></div>
+                <div class="arrow Ab up inner inner-2"></div>
+                <div class="arrow Ab down inner inner-3"></div>
+                <div class="arrow Ab up outer outer-11"></div>
+                <div class="arrow Ab down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Ab down outer outer-5"></div>
+                <div class="arrow Ab up outer outer-6"></div>
+                <div class="arrow Ab down outer outer-7"></div>
+                <div class="arrow Ab up outer outer-8"></div>
+                <div class="arrow Ab down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">A<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey9");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(ab);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(ab);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(ab);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(ab);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(ab);
+            premutoTA = 0;}
+            }
+            
+            function la_play() {
+              let contenitoreNota = document.createElement("div");
+             var a = playNote(-12);
+     
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Aviolet Ared up outer outer-18"></div>
+                <div class="arrow Aviolet Aviolet Ared down outer outer-17"></div>
+                <div class="arrow Aviolet Ared up outer outer-16"></div>
+                <div class="arrow Aviolet Ared down outer outer-15"></div>
+                <div class="arrow Aviolet Ared up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Aviolet Ared up outer outer-1"></div>
+                <div class="arrow Aviolet Ared down outer outer-2"></div>
+                <div class="arrow Aviolet Ared up inner inner-6"></div>
+                <div class="arrow Aviolet Ared down inner inner-5"></div>
+                <div class="arrow Aviolet Ared up inner inner-4"></div>
+                <div class="arrow Aviolet Ared down outer outer-13"></div>
+                <div class="arrow Aviolet Ared up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Aviolet Ared down outer outer-3"></div>
+                <div class="arrow Aviolet Ared up outer outer-4"></div>
+                <div class="arrow Aviolet Ared down inner inner-1"></div>
+                <div class="arrow Aviolet Ared up inner inner-2"></div>
+                <div class="arrow Aviolet Ared down inner inner-3"></div>
+                <div class="arrow Aviolet Ared up outer outer-11"></div>
+                <div class="arrow Aviolet Ared down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Aviolet Ared down outer outer-5"></div>
+                <div class="arrow Aviolet Ared up outer outer-6"></div>
+                <div class="arrow Aviolet Ared down outer outer-7"></div>
+                <div class="arrow Aviolet Ared up outer outer-8"></div>
+                <div class="arrow Aviolet Ared down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">A</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey10");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(a);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(a);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(a);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(a);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(a);
+            premutoTA = 0;}
+            }
+            
+            function lbb_play() {
+              let contenitoreNota = document.createElement("div");
+             var bb= playNote(-11);
+     
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Bb up outer outer-18"></div>
+                <div class="arrow Bb  down outer outer-17"></div>
+                <div class="arrow Bb  up outer outer-16"></div>
+                <div class="arrow Bb  down outer outer-15"></div>
+                <div class="arrow Bb  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bb  up outer outer-1"></div>
+                <div class="arrow Bb  down outer outer-2"></div>
+                <div class="arrow Bb  up inner inner-6"></div>
+                <div class="arrow Bb  down inner inner-5"></div>
+                <div class="arrow Bb  up inner inner-4"></div>
+                <div class="arrow Bb  down outer outer-13"></div>
+                <div class="arrow Bb  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bb  down outer outer-3"></div>
+                <div class="arrow Bb  up outer outer-4"></div>
+                <div class="arrow Bb  down inner inner-1"></div>
+                <div class="arrow Bb  up inner inner-2"></div>
+                <div class="arrow Bb  down inner inner-3"></div>
+                <div class="arrow Bb  up outer outer-11"></div>
+                <div class="arrow Bb  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bb  down outer outer-5"></div>
+                <div class="arrow Bb  up outer outer-6"></div>
+                <div class="arrow Bb  down outer outer-7"></div>
+                <div class="arrow Bb  up outer outer-8"></div>
+                <div class="arrow Bb  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">B<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey10");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(bb);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(bb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(bb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(bb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(bb);
+            premutoTA = 0;}
+            }
+            
+            function lb_play() {
+              let contenitoreNota = document.createElement("div");
+              var b= playNote(-10);
+   
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Bpink up outer outer-18"></div>
+                <div class="arrow Bpink  down outer outer-17"></div>
+                <div class="arrow Bpink  up outer outer-16"></div>
+                <div class="arrow Bpink  down outer outer-15"></div>
+                <div class="arrow Bpink  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bpink  up outer outer-1"></div>
+                <div class="arrow Bpink  down outer outer-2"></div>
+                <div class="arrow Bpink  up inner inner-6"></div>
+                <div class="arrow Bpink  down inner inner-5"></div>
+                <div class="arrow Bpink  up inner inner-4"></div>
+                <div class="arrow Bpink  down outer outer-13"></div>
+                <div class="arrow Bpink  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bpink  down outer outer-3"></div>
+                <div class="arrow Bpink  up outer outer-4"></div>
+                <div class="arrow Bpink  down inner inner-1"></div>
+                <div class="arrow Bpink  up inner inner-2"></div>
+                <div class="arrow Bpink  down inner inner-3"></div>
+                <div class="arrow Bpink  up outer outer-11"></div>
+                <div class="arrow Bpink  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bpink  down outer outer-5"></div>
+                <div class="arrow Bpink  up outer outer-6"></div>
+                <div class="arrow Bpink  down outer outer-7"></div>
+                <div class="arrow Bpink  up outer outer-8"></div>
+                <div class="arrow Bpink  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">B</h1>
+                </main>
+                </div>        `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey11");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(b);
+              };if ( premutoTM == 1) {
+      TriadeMaggiore(b);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(b);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(b);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(b);
+            premutoTA = 0;}
+                
+            }          
+          
            
             
             function c_play() {
@@ -1329,19 +1898,1971 @@
             }
             
             
-            /* function twoc_play() {
+            function hc_play() {
               let contenitoreNota = document.createElement("div");
-              c = new AudioContext();
-              c.createOscillator();
-              var d = c.createOscillator();
-              d.connect(c.destination);
-              const freq = Math.pow(2, (3)/12)*440;
-              d.start();
-              d.frequency.value = freq;
-              setTimeout (function(){
-                d.stop();
-              }, sustain)
-            } */
+        var c = playNote(3); 
+    
+    if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Cred up outer outer-18"></div>
+                <div class="arrow  Cred down outer outer-17"></div>
+                <div class="arrow Cred  up outer outer-16"></div>
+                <div class="arrow Cred  down outer outer-15"></div>
+                <div class="arrow Cred  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Cred  up outer outer-1"></div>
+                <div class="arrow Cred  down outer outer-2"></div>
+                <div class="arrow  Cred up inner inner-6"></div>
+                <div class="arrow Cred  down inner inner-5"></div>
+                <div class="arrow Cred  up inner inner-4"></div>
+                <div class="arrow Cred  down outer outer-13"></div>
+                <div class="arrow Cred  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Cred  down outer outer-3"></div>
+                <div class="arrow Cred  up outer outer-4"></div>
+                <div class="arrow Cred  down inner inner-1"></div>
+                <div class="arrow Cred  up inner inner-2"></div>
+                <div class="arrow Cred  down inner inner-3"></div>
+                <div class="arrow Cred  up outer outer-11"></div>
+                <div class="arrow Cred  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Cred  down outer outer-5"></div>
+                <div class="arrow Cred  up outer outer-6"></div>
+                <div class="arrow Cred  down outer outer-7"></div>
+                <div class="arrow Cred  up outer outer-8"></div>
+                <div class="arrow Cred  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">C</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("whiteKey5");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(c);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(c);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(c);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(c);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(c);
+            premutoTA = 0;}
+            }
+            
+            function hdb_play() {
+              let contenitoreNota = document.createElement("div");
+             var db = playNote(4);
+     
+    
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Db up outer outer-18"></div>
+                <div class="arrow Db  down outer outer-17"></div>
+                <div class="arrow Db  up outer outer-16"></div>
+                <div class="arrow Db  down outer outer-15"></div>
+                <div class="arrow Db  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Db  up outer outer-1"></div>
+                <div class="arrow Db  down outer outer-2"></div>
+                <div class="arrow Db  up inner inner-6"></div>
+                <div class="arrow Db  down inner inner-5"></div>
+                <div class="arrow Db  up inner inner-4"></div>
+                <div class="arrow Db  down outer outer-13"></div>
+                <div class="arrow Db  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Db  down outer outer-3"></div>
+                <div class="arrow Db  up outer outer-4"></div>
+                <div class="arrow Db  down inner inner-1"></div>
+                <div class="arrow Db  up inner inner-2"></div>
+                <div class="arrow Db  down inner inner-3"></div>
+                <div class="arrow Db  up outer outer-11"></div>
+                <div class="arrow Db  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Db  down outer outer-5"></div>
+                <div class="arrow Db  up outer outer-6"></div>
+                <div class="arrow Db  down outer outer-7"></div>
+                <div class="arrow Db  up outer outer-8"></div>
+                <div class="arrow Db  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">D<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey5");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(db);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(db);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(db);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(db);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(db);
+            premutoTA = 0;}
+            }
+            
+            function hd_play() {
+              let contenitoreNota = document.createElement("div");
+             var d = playNote(5);
+      
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Dbrown up outer outer-18"></div>
+                <div class="arrow Dbrown down outer outer-17"></div>
+                <div class="arrow Dbrown up outer outer-16"></div>
+                <div class="arrow Dbrown down outer outer-15"></div>
+                <div class="arrow Dbrown up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Dbrown up outer outer-1"></div>
+                <div class="arrow Dbrown down outer outer-2"></div>
+                <div class="arrow Dbrown up inner inner-6"></div>
+                <div class="arrow Dbrown down inner inner-5"></div>
+                <div class="arrow Dbrown up inner inner-4"></div>
+                <div class="arrow Dbrown down outer outer-13"></div>
+                <div class="arrow Dbrown up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Dbrown down outer outer-3"></div>
+                <div class="arrow Dbrown up outer outer-4"></div>
+                <div class="arrow Dbrown down inner inner-1"></div>
+                <div class="arrow Dbrown up inner inner-2"></div>
+                <div class="arrow Dbrown down inner inner-3"></div>
+                <div class="arrow Dbrown up outer outer-11"></div>
+                <div class="arrow Dbrown down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Dbrown down outer outer-5"></div>
+                <div class="arrow Dbrown up outer outer-6"></div>
+                <div class="arrow Dbrown down outer outer-7"></div>
+                <div class="arrow Dbrown up outer outer-8"></div>
+                <div class="arrow Dbrown down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">D</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey6");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(d);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(d);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(d);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(d);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(d);
+            premutoTA = 0;}
+            }
+            
+            function heb_play() {
+              let contenitoreNota = document.createElement("div");
+              var eb = playNote(6);
+     
+                
+              if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Eb up outer outer-18"></div>
+                <div class="arrow Eb down outer outer-17"></div>
+                <div class="arrow Eb up outer outer-16"></div>
+                <div class="arrow Eb down outer outer-15"></div>
+                <div class="arrow Eb up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Eb up outer outer-1"></div>
+                <div class="arrow Eb down outer outer-2"></div>
+                <div class="arrow Eb up inner inner-6"></div>
+                <div class="arrow Eb down inner inner-5"></div>
+                <div class="arrow Eb up inner inner-4"></div>
+                <div class="arrow Eb down outer outer-13"></div>
+                <div class="arrow Eb up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Eb down outer outer-3"></div>
+                <div class="arrow Eb up outer outer-4"></div>
+                <div class="arrow Eb down inner inner-1"></div>
+                <div class="arrow Eb up inner inner-2"></div>
+                <div class="arrow Eb down inner inner-3"></div>
+                <div class="arrow Eb up outer outer-11"></div>
+                <div class="arrow Eb down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Eb down outer outer-5"></div>
+                <div class="arrow Eb up outer outer-6"></div>
+                <div class="arrow Eb down outer outer-7"></div>
+                <div class="arrow Eb up outer outer-8"></div>
+                <div class="arrow Eb down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">E<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey6");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(eb);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(eb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(eb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(eb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(eb);
+            premutoTA = 0;}
+            }
+            
+            function he_play() {
+              let contenitoreNota = document.createElement("div");
+              var e = playNote(7);
+     
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Epinks up outer outer-18"></div>
+                <div class="arrow Epinks  down outer outer-17"></div>
+                <div class="arrow  Epinks up outer outer-16"></div>
+                <div class="arrow  Epinks down outer outer-15"></div>
+                <div class="arrow Epinks  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Epinks  up outer outer-1"></div>
+                <div class="arrow  Epinks down outer outer-2"></div>
+                <div class="arrow  Epinks up inner inner-6"></div>
+                <div class="arrow Epinks  down inner inner-5"></div>
+                <div class="arrow Epinks  up inner inner-4"></div>
+                <div class="arrow Epinks  down outer outer-13"></div>
+                <div class="arrow Epinks  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Epinks  down outer outer-3"></div>
+                <div class="arrow Epinks  up outer outer-4"></div>
+                <div class="arrow Epinks  down inner inner-1"></div>
+                <div class="arrow Epinks  up inner inner-2"></div>
+                <div class="arrow Epinks  down inner inner-3"></div>
+                <div class="arrow Epinks  up outer outer-11"></div>
+                <div class="arrow Epinks  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Epinks  down outer outer-5"></div>
+                <div class="arrow Epinks  up outer outer-6"></div>
+                <div class="arrow Epinks  down outer outer-7"></div>
+                <div class="arrow Epinks  up outer outer-8"></div>
+                <div class="arrow Epinks  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">E</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey7");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(e);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(e);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(e);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(e);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(e);
+            premutoTA = 0;}
+            }
+            
+            
+            function hf_play() {
+              let contenitoreNota = document.createElement("div");
+              var f = playNote(8);
+      
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Fgreen up outer outer-18"></div>
+                <div class="arrow Fgreen down outer outer-17"></div>
+                <div class="arrow Fgreen up outer outer-16"></div>
+                <div class="arrow Fgreen down outer outer-15"></div>
+                <div class="arrow Fgreen up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Fgreen up outer outer-1"></div>
+                <div class="arrow Fgreen down outer outer-2"></div>
+                <div class="arrow Fgreen up inner inner-6"></div>
+                <div class="arrow Fgreen down inner inner-5"></div>
+                <div class="arrow Fgreen up inner inner-4"></div>
+                <div class="arrow Fgreen down outer outer-13"></div>
+                <div class="arrow Fgreen up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Fgreen down outer outer-3"></div>
+                <div class="arrow Fgreen up outer outer-4"></div>
+                <div class="arrow Fgreen down inner inner-1"></div>
+                <div class="arrow Fgreen up inner inner-2"></div>
+                <div class="arrow Fgreen down inner inner-3"></div>
+                <div class="arrow Fgreen up outer outer-11"></div>
+                <div class="arrow Fgreen down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Fgreen down outer outer-5"></div>
+                <div class="arrow Fgreen up outer outer-6"></div>
+                <div class="arrow Fgreen down outer outer-7"></div>
+                <div class="arrow Fgreen up outer outer-8"></div>
+                <div class="arrow Fgreen down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">F</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+                let tastopremuto = document.getElementById("whiteKey8");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(f);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(f);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(f);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(f);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(f);
+            premutoTA = 0;}
+            }
+            
+            function hgb_play() {
+              let contenitoreNota = document.createElement("div");
+             var gb = playNote(9);
+      
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Gb up outer outer-18"></div>
+                <div class="arrow Gb down outer outer-17"></div>
+                <div class="arrow Gb up outer outer-16"></div>
+                <div class="arrow Gb down outer outer-15"></div>
+                <div class="arrow Gb up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gb up outer outer-1"></div>
+                <div class="arrow Gb down outer outer-2"></div>
+                <div class="arrow Gb up inner inner-6"></div>
+                <div class="arrow Gb down inner inner-5"></div>
+                <div class="arrow Gb up inner inner-4"></div>
+                <div class="arrow Gb down outer outer-13"></div>
+                <div class="arrow Gb up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gb down outer outer-3"></div>
+                <div class="arrow Gb up outer outer-4"></div>
+                <div class="arrow Gb down inner inner-1"></div>
+                <div class="arrow Gb up inner inner-2"></div>
+                <div class="arrow Gb down inner inner-3"></div>
+                <div class="arrow Gb up outer outer-11"></div>
+                <div class="arrow Gb down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gb down outer outer-5"></div>
+                <div class="arrow Gb up outer outer-6"></div>
+                <div class="arrow Gb down outer outer-7"></div>
+                <div class="arrow Gb up outer outer-8"></div>
+                <div class="arrow Gb down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">G<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey8");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(gb);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(gb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(gb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(gb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(gb);
+            premutoTA = 0;}
+            }
+            
+            function hg_play() {
+              let contenitoreNota = document.createElement("div");
+            var g = playNote(10);
+      
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Gblue up outer outer-18"></div>
+                <div class="arrow Gblue down outer outer-17"></div>
+                <div class="arrow Gblue up outer outer-16"></div>
+                <div class="arrow Gblue down outer outer-15"></div>
+                <div class="arrow Gblue up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gblue up outer outer-1"></div>
+                <div class="arrow Gblue down outer outer-2"></div>
+                <div class="arrow Gblue up inner inner-6"></div>
+                <div class="arrow Gblue down inner inner-5"></div>
+                <div class="arrow Gblue up inner inner-4"></div>
+                <div class="arrow Gblue down outer outer-13"></div>
+                <div class="arrow Gblue up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gblue down outer outer-3"></div>
+                <div class="arrow Gblue up outer outer-4"></div>
+                <div class="arrow Gblue down inner inner-1"></div>
+                <div class="arrow Gblue up inner inner-2"></div>
+                <div class="arrow Gblue down inner inner-3"></div>
+                <div class="arrow Gblue up outer outer-11"></div>
+                <div class="arrow Gblue down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gblue down outer outer-5"></div>
+                <div class="arrow Gblue up outer outer-6"></div>
+                <div class="arrow Gblue down outer outer-7"></div>
+                <div class="arrow Gblue up outer outer-8"></div>
+                <div class="arrow Gblue down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">G</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+                let tastopremuto = document.getElementById("whiteKey9");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(g);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(g);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(g);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(g);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(g);
+            premutoTA = 0;}
+            }
+            
+            function hab_play() {
+              let contenitoreNota = document.createElement("div");
+              var ab = playNote(11);
+      
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Ab up outer outer-18"></div>
+                <div class="arrow Ab down outer outer-17"></div>
+                <div class="arrow Ab up outer outer-16"></div>
+                <div class="arrow Ab down outer outer-15"></div>
+                <div class="arrow Ab up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Ab up outer outer-1"></div>
+                <div class="arrow Ab down outer outer-2"></div>
+                <div class="arrow Ab up inner inner-6"></div>
+                <div class="arrow Ab down inner inner-5"></div>
+                <div class="arrow Ab up inner inner-4"></div>
+                <div class="arrow Ab down outer outer-13"></div>
+                <div class="arrow Ab up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Ab down outer outer-3"></div>
+                <div class="arrow Ab up outer outer-4"></div>
+                <div class="arrow Ab down inner inner-1"></div>
+                <div class="arrow Ab up inner inner-2"></div>
+                <div class="arrow Ab down inner inner-3"></div>
+                <div class="arrow Ab up outer outer-11"></div>
+                <div class="arrow Ab down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Ab down outer outer-5"></div>
+                <div class="arrow Ab up outer outer-6"></div>
+                <div class="arrow Ab down outer outer-7"></div>
+                <div class="arrow Ab up outer outer-8"></div>
+                <div class="arrow Ab down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">A<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey9");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(ab);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(ab);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(ab);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(ab);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(ab);
+            premutoTA = 0;}
+            }
+            
+            function ha_play() {
+              let contenitoreNota = document.createElement("div");
+             var a = playNote(12);
+     
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Aviolet Ared up outer outer-18"></div>
+                <div class="arrow Aviolet Aviolet Ared down outer outer-17"></div>
+                <div class="arrow Aviolet Ared up outer outer-16"></div>
+                <div class="arrow Aviolet Ared down outer outer-15"></div>
+                <div class="arrow Aviolet Ared up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Aviolet Ared up outer outer-1"></div>
+                <div class="arrow Aviolet Ared down outer outer-2"></div>
+                <div class="arrow Aviolet Ared up inner inner-6"></div>
+                <div class="arrow Aviolet Ared down inner inner-5"></div>
+                <div class="arrow Aviolet Ared up inner inner-4"></div>
+                <div class="arrow Aviolet Ared down outer outer-13"></div>
+                <div class="arrow Aviolet Ared up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Aviolet Ared down outer outer-3"></div>
+                <div class="arrow Aviolet Ared up outer outer-4"></div>
+                <div class="arrow Aviolet Ared down inner inner-1"></div>
+                <div class="arrow Aviolet Ared up inner inner-2"></div>
+                <div class="arrow Aviolet Ared down inner inner-3"></div>
+                <div class="arrow Aviolet Ared up outer outer-11"></div>
+                <div class="arrow Aviolet Ared down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Aviolet Ared down outer outer-5"></div>
+                <div class="arrow Aviolet Ared up outer outer-6"></div>
+                <div class="arrow Aviolet Ared down outer outer-7"></div>
+                <div class="arrow Aviolet Ared up outer outer-8"></div>
+                <div class="arrow Aviolet Ared down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">A</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey10");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(a);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(a);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(a);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(a);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(a);
+            premutoTA = 0;}
+            }
+            
+            function hbb_play() {
+              let contenitoreNota = document.createElement("div");
+             var bb= playNote(13);
+     
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Bb up outer outer-18"></div>
+                <div class="arrow Bb  down outer outer-17"></div>
+                <div class="arrow Bb  up outer outer-16"></div>
+                <div class="arrow Bb  down outer outer-15"></div>
+                <div class="arrow Bb  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bb  up outer outer-1"></div>
+                <div class="arrow Bb  down outer outer-2"></div>
+                <div class="arrow Bb  up inner inner-6"></div>
+                <div class="arrow Bb  down inner inner-5"></div>
+                <div class="arrow Bb  up inner inner-4"></div>
+                <div class="arrow Bb  down outer outer-13"></div>
+                <div class="arrow Bb  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bb  down outer outer-3"></div>
+                <div class="arrow Bb  up outer outer-4"></div>
+                <div class="arrow Bb  down inner inner-1"></div>
+                <div class="arrow Bb  up inner inner-2"></div>
+                <div class="arrow Bb  down inner inner-3"></div>
+                <div class="arrow Bb  up outer outer-11"></div>
+                <div class="arrow Bb  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bb  down outer outer-5"></div>
+                <div class="arrow Bb  up outer outer-6"></div>
+                <div class="arrow Bb  down outer outer-7"></div>
+                <div class="arrow Bb  up outer outer-8"></div>
+                <div class="arrow Bb  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">B<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey10");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(bb);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(bb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(bb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(bb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(bb);
+            premutoTA = 0;}
+            }
+            
+            function hb_play() {
+              let contenitoreNota = document.createElement("div");
+              var b= playNote(14);
+   
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Bpink up outer outer-18"></div>
+                <div class="arrow Bpink  down outer outer-17"></div>
+                <div class="arrow Bpink  up outer outer-16"></div>
+                <div class="arrow Bpink  down outer outer-15"></div>
+                <div class="arrow Bpink  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bpink  up outer outer-1"></div>
+                <div class="arrow Bpink  down outer outer-2"></div>
+                <div class="arrow Bpink  up inner inner-6"></div>
+                <div class="arrow Bpink  down inner inner-5"></div>
+                <div class="arrow Bpink  up inner inner-4"></div>
+                <div class="arrow Bpink  down outer outer-13"></div>
+                <div class="arrow Bpink  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bpink  down outer outer-3"></div>
+                <div class="arrow Bpink  up outer outer-4"></div>
+                <div class="arrow Bpink  down inner inner-1"></div>
+                <div class="arrow Bpink  up inner inner-2"></div>
+                <div class="arrow Bpink  down inner inner-3"></div>
+                <div class="arrow Bpink  up outer outer-11"></div>
+                <div class="arrow Bpink  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bpink  down outer outer-5"></div>
+                <div class="arrow Bpink  up outer outer-6"></div>
+                <div class="arrow Bpink  down outer outer-7"></div>
+                <div class="arrow Bpink  up outer outer-8"></div>
+                <div class="arrow Bpink  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">B</h1>
+                </main>
+                </div>        `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey11");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(b);
+              };if ( premutoTM == 1) {
+      TriadeMaggiore(b);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(b);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(b);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(b);
+            premutoTA = 0;}
+                
+            }
+            
+            
+          function hhc_play() {
+              let contenitoreNota = document.createElement("div");
+        var c = playNote(15); 
+    
+    if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Cred up outer outer-18"></div>
+                <div class="arrow  Cred down outer outer-17"></div>
+                <div class="arrow Cred  up outer outer-16"></div>
+                <div class="arrow Cred  down outer outer-15"></div>
+                <div class="arrow Cred  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Cred  up outer outer-1"></div>
+                <div class="arrow Cred  down outer outer-2"></div>
+                <div class="arrow  Cred up inner inner-6"></div>
+                <div class="arrow Cred  down inner inner-5"></div>
+                <div class="arrow Cred  up inner inner-4"></div>
+                <div class="arrow Cred  down outer outer-13"></div>
+                <div class="arrow Cred  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Cred  down outer outer-3"></div>
+                <div class="arrow Cred  up outer outer-4"></div>
+                <div class="arrow Cred  down inner inner-1"></div>
+                <div class="arrow Cred  up inner inner-2"></div>
+                <div class="arrow Cred  down inner inner-3"></div>
+                <div class="arrow Cred  up outer outer-11"></div>
+                <div class="arrow Cred  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Cred  down outer outer-5"></div>
+                <div class="arrow Cred  up outer outer-6"></div>
+                <div class="arrow Cred  down outer outer-7"></div>
+                <div class="arrow Cred  up outer outer-8"></div>
+                <div class="arrow Cred  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">C</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("whiteKey5");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(c);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(c);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(c);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(c);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(c);
+            premutoTA = 0;}
+            }
+            
+            function hhdb_play() {
+              let contenitoreNota = document.createElement("div");
+             var db = playNote(16);
+     
+    
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Db up outer outer-18"></div>
+                <div class="arrow Db  down outer outer-17"></div>
+                <div class="arrow Db  up outer outer-16"></div>
+                <div class="arrow Db  down outer outer-15"></div>
+                <div class="arrow Db  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Db  up outer outer-1"></div>
+                <div class="arrow Db  down outer outer-2"></div>
+                <div class="arrow Db  up inner inner-6"></div>
+                <div class="arrow Db  down inner inner-5"></div>
+                <div class="arrow Db  up inner inner-4"></div>
+                <div class="arrow Db  down outer outer-13"></div>
+                <div class="arrow Db  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Db  down outer outer-3"></div>
+                <div class="arrow Db  up outer outer-4"></div>
+                <div class="arrow Db  down inner inner-1"></div>
+                <div class="arrow Db  up inner inner-2"></div>
+                <div class="arrow Db  down inner inner-3"></div>
+                <div class="arrow Db  up outer outer-11"></div>
+                <div class="arrow Db  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Db  down outer outer-5"></div>
+                <div class="arrow Db  up outer outer-6"></div>
+                <div class="arrow Db  down outer outer-7"></div>
+                <div class="arrow Db  up outer outer-8"></div>
+                <div class="arrow Db  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">D<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey5");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(db);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(db);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(db);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(db);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(db);
+            premutoTA = 0;}
+            }
+            
+            function hhd_play() {
+              let contenitoreNota = document.createElement("div");
+             var d = playNote(17);
+      
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Dbrown up outer outer-18"></div>
+                <div class="arrow Dbrown down outer outer-17"></div>
+                <div class="arrow Dbrown up outer outer-16"></div>
+                <div class="arrow Dbrown down outer outer-15"></div>
+                <div class="arrow Dbrown up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Dbrown up outer outer-1"></div>
+                <div class="arrow Dbrown down outer outer-2"></div>
+                <div class="arrow Dbrown up inner inner-6"></div>
+                <div class="arrow Dbrown down inner inner-5"></div>
+                <div class="arrow Dbrown up inner inner-4"></div>
+                <div class="arrow Dbrown down outer outer-13"></div>
+                <div class="arrow Dbrown up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Dbrown down outer outer-3"></div>
+                <div class="arrow Dbrown up outer outer-4"></div>
+                <div class="arrow Dbrown down inner inner-1"></div>
+                <div class="arrow Dbrown up inner inner-2"></div>
+                <div class="arrow Dbrown down inner inner-3"></div>
+                <div class="arrow Dbrown up outer outer-11"></div>
+                <div class="arrow Dbrown down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Dbrown down outer outer-5"></div>
+                <div class="arrow Dbrown up outer outer-6"></div>
+                <div class="arrow Dbrown down outer outer-7"></div>
+                <div class="arrow Dbrown up outer outer-8"></div>
+                <div class="arrow Dbrown down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">D</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey6");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(d);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(d);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(d);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(d);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(d);
+            premutoTA = 0;}
+            }
+            
+            function hheb_play() {
+              let contenitoreNota = document.createElement("div");
+              var eb = playNote(18);
+     
+                
+              if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Eb up outer outer-18"></div>
+                <div class="arrow Eb down outer outer-17"></div>
+                <div class="arrow Eb up outer outer-16"></div>
+                <div class="arrow Eb down outer outer-15"></div>
+                <div class="arrow Eb up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Eb up outer outer-1"></div>
+                <div class="arrow Eb down outer outer-2"></div>
+                <div class="arrow Eb up inner inner-6"></div>
+                <div class="arrow Eb down inner inner-5"></div>
+                <div class="arrow Eb up inner inner-4"></div>
+                <div class="arrow Eb down outer outer-13"></div>
+                <div class="arrow Eb up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Eb down outer outer-3"></div>
+                <div class="arrow Eb up outer outer-4"></div>
+                <div class="arrow Eb down inner inner-1"></div>
+                <div class="arrow Eb up inner inner-2"></div>
+                <div class="arrow Eb down inner inner-3"></div>
+                <div class="arrow Eb up outer outer-11"></div>
+                <div class="arrow Eb down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Eb down outer outer-5"></div>
+                <div class="arrow Eb up outer outer-6"></div>
+                <div class="arrow Eb down outer outer-7"></div>
+                <div class="arrow Eb up outer outer-8"></div>
+                <div class="arrow Eb down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">E<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey6");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(eb);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(eb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(eb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(eb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(eb);
+            premutoTA = 0;}
+            }
+            
+            function hhe_play() {
+              let contenitoreNota = document.createElement("div");
+              var e = playNote(19);
+     
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Epinks up outer outer-18"></div>
+                <div class="arrow Epinks  down outer outer-17"></div>
+                <div class="arrow  Epinks up outer outer-16"></div>
+                <div class="arrow  Epinks down outer outer-15"></div>
+                <div class="arrow Epinks  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Epinks  up outer outer-1"></div>
+                <div class="arrow  Epinks down outer outer-2"></div>
+                <div class="arrow  Epinks up inner inner-6"></div>
+                <div class="arrow Epinks  down inner inner-5"></div>
+                <div class="arrow Epinks  up inner inner-4"></div>
+                <div class="arrow Epinks  down outer outer-13"></div>
+                <div class="arrow Epinks  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Epinks  down outer outer-3"></div>
+                <div class="arrow Epinks  up outer outer-4"></div>
+                <div class="arrow Epinks  down inner inner-1"></div>
+                <div class="arrow Epinks  up inner inner-2"></div>
+                <div class="arrow Epinks  down inner inner-3"></div>
+                <div class="arrow Epinks  up outer outer-11"></div>
+                <div class="arrow Epinks  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Epinks  down outer outer-5"></div>
+                <div class="arrow Epinks  up outer outer-6"></div>
+                <div class="arrow Epinks  down outer outer-7"></div>
+                <div class="arrow Epinks  up outer outer-8"></div>
+                <div class="arrow Epinks  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">E</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey7");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(e);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(e);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(e);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(e);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(e);
+            premutoTA = 0;}
+            }
+            
+            
+            function hhf_play() {
+              let contenitoreNota = document.createElement("div");
+              var f = playNote(20);
+      
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Fgreen up outer outer-18"></div>
+                <div class="arrow Fgreen down outer outer-17"></div>
+                <div class="arrow Fgreen up outer outer-16"></div>
+                <div class="arrow Fgreen down outer outer-15"></div>
+                <div class="arrow Fgreen up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Fgreen up outer outer-1"></div>
+                <div class="arrow Fgreen down outer outer-2"></div>
+                <div class="arrow Fgreen up inner inner-6"></div>
+                <div class="arrow Fgreen down inner inner-5"></div>
+                <div class="arrow Fgreen up inner inner-4"></div>
+                <div class="arrow Fgreen down outer outer-13"></div>
+                <div class="arrow Fgreen up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Fgreen down outer outer-3"></div>
+                <div class="arrow Fgreen up outer outer-4"></div>
+                <div class="arrow Fgreen down inner inner-1"></div>
+                <div class="arrow Fgreen up inner inner-2"></div>
+                <div class="arrow Fgreen down inner inner-3"></div>
+                <div class="arrow Fgreen up outer outer-11"></div>
+                <div class="arrow Fgreen down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Fgreen down outer outer-5"></div>
+                <div class="arrow Fgreen up outer outer-6"></div>
+                <div class="arrow Fgreen down outer outer-7"></div>
+                <div class="arrow Fgreen up outer outer-8"></div>
+                <div class="arrow Fgreen down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">F</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+                let tastopremuto = document.getElementById("whiteKey8");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(f);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(f);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(f);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(f);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(f);
+            premutoTA = 0;}
+            }
+            
+            function hhgb_play() {
+              let contenitoreNota = document.createElement("div");
+             var gb = playNote(21);
+      
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Gb up outer outer-18"></div>
+                <div class="arrow Gb down outer outer-17"></div>
+                <div class="arrow Gb up outer outer-16"></div>
+                <div class="arrow Gb down outer outer-15"></div>
+                <div class="arrow Gb up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gb up outer outer-1"></div>
+                <div class="arrow Gb down outer outer-2"></div>
+                <div class="arrow Gb up inner inner-6"></div>
+                <div class="arrow Gb down inner inner-5"></div>
+                <div class="arrow Gb up inner inner-4"></div>
+                <div class="arrow Gb down outer outer-13"></div>
+                <div class="arrow Gb up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gb down outer outer-3"></div>
+                <div class="arrow Gb up outer outer-4"></div>
+                <div class="arrow Gb down inner inner-1"></div>
+                <div class="arrow Gb up inner inner-2"></div>
+                <div class="arrow Gb down inner inner-3"></div>
+                <div class="arrow Gb up outer outer-11"></div>
+                <div class="arrow Gb down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gb down outer outer-5"></div>
+                <div class="arrow Gb up outer outer-6"></div>
+                <div class="arrow Gb down outer outer-7"></div>
+                <div class="arrow Gb up outer outer-8"></div>
+                <div class="arrow Gb down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">G<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey8");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(gb);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(gb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(gb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(gb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(gb);
+            premutoTA = 0;}
+            }
+            
+            function hhg_play() {
+              let contenitoreNota = document.createElement("div");
+            var g = playNote(22);
+      
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Gblue up outer outer-18"></div>
+                <div class="arrow Gblue down outer outer-17"></div>
+                <div class="arrow Gblue up outer outer-16"></div>
+                <div class="arrow Gblue down outer outer-15"></div>
+                <div class="arrow Gblue up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gblue up outer outer-1"></div>
+                <div class="arrow Gblue down outer outer-2"></div>
+                <div class="arrow Gblue up inner inner-6"></div>
+                <div class="arrow Gblue down inner inner-5"></div>
+                <div class="arrow Gblue up inner inner-4"></div>
+                <div class="arrow Gblue down outer outer-13"></div>
+                <div class="arrow Gblue up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gblue down outer outer-3"></div>
+                <div class="arrow Gblue up outer outer-4"></div>
+                <div class="arrow Gblue down inner inner-1"></div>
+                <div class="arrow Gblue up inner inner-2"></div>
+                <div class="arrow Gblue down inner inner-3"></div>
+                <div class="arrow Gblue up outer outer-11"></div>
+                <div class="arrow Gblue down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Gblue down outer outer-5"></div>
+                <div class="arrow Gblue up outer outer-6"></div>
+                <div class="arrow Gblue down outer outer-7"></div>
+                <div class="arrow Gblue up outer outer-8"></div>
+                <div class="arrow Gblue down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">G</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+            }
+                let tastopremuto = document.getElementById("whiteKey9");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(g);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(g);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(g);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(g);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(g);
+            premutoTA = 0;}
+            }
+            
+            function hhab_play() {
+              let contenitoreNota = document.createElement("div");
+              var ab = playNote(23);
+      
+                
+               if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Ab up outer outer-18"></div>
+                <div class="arrow Ab down outer outer-17"></div>
+                <div class="arrow Ab up outer outer-16"></div>
+                <div class="arrow Ab down outer outer-15"></div>
+                <div class="arrow Ab up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Ab up outer outer-1"></div>
+                <div class="arrow Ab down outer outer-2"></div>
+                <div class="arrow Ab up inner inner-6"></div>
+                <div class="arrow Ab down inner inner-5"></div>
+                <div class="arrow Ab up inner inner-4"></div>
+                <div class="arrow Ab down outer outer-13"></div>
+                <div class="arrow Ab up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Ab down outer outer-3"></div>
+                <div class="arrow Ab up outer outer-4"></div>
+                <div class="arrow Ab down inner inner-1"></div>
+                <div class="arrow Ab up inner inner-2"></div>
+                <div class="arrow Ab down inner inner-3"></div>
+                <div class="arrow Ab up outer outer-11"></div>
+                <div class="arrow Ab down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Ab down outer outer-5"></div>
+                <div class="arrow Ab up outer outer-6"></div>
+                <div class="arrow Ab down outer outer-7"></div>
+                <div class="arrow Ab up outer outer-8"></div>
+                <div class="arrow Ab down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">A<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey9");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(ab);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(ab);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(ab);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(ab);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(ab);
+            premutoTA = 0;}
+            }
+            
+            function hha_play() {
+              let contenitoreNota = document.createElement("div");
+             var a = playNote(24);
+     
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Aviolet Ared up outer outer-18"></div>
+                <div class="arrow Aviolet Aviolet Ared down outer outer-17"></div>
+                <div class="arrow Aviolet Ared up outer outer-16"></div>
+                <div class="arrow Aviolet Ared down outer outer-15"></div>
+                <div class="arrow Aviolet Ared up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Aviolet Ared up outer outer-1"></div>
+                <div class="arrow Aviolet Ared down outer outer-2"></div>
+                <div class="arrow Aviolet Ared up inner inner-6"></div>
+                <div class="arrow Aviolet Ared down inner inner-5"></div>
+                <div class="arrow Aviolet Ared up inner inner-4"></div>
+                <div class="arrow Aviolet Ared down outer outer-13"></div>
+                <div class="arrow Aviolet Ared up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Aviolet Ared down outer outer-3"></div>
+                <div class="arrow Aviolet Ared up outer outer-4"></div>
+                <div class="arrow Aviolet Ared down inner inner-1"></div>
+                <div class="arrow Aviolet Ared up inner inner-2"></div>
+                <div class="arrow Aviolet Ared down inner inner-3"></div>
+                <div class="arrow Aviolet Ared up outer outer-11"></div>
+                <div class="arrow Aviolet Ared down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Aviolet Ared down outer outer-5"></div>
+                <div class="arrow Aviolet Ared up outer outer-6"></div>
+                <div class="arrow Aviolet Ared down outer outer-7"></div>
+                <div class="arrow Aviolet Ared up outer outer-8"></div>
+                <div class="arrow Aviolet Ared down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">A</h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey10");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(a);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(a);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(a);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(a);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(a);
+            premutoTA = 0;}
+            }
+            
+            function hhbb_play() {
+              let contenitoreNota = document.createElement("div");
+             var bb= playNote(25);
+     
+                
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Bb up outer outer-18"></div>
+                <div class="arrow Bb  down outer outer-17"></div>
+                <div class="arrow Bb  up outer outer-16"></div>
+                <div class="arrow Bb  down outer outer-15"></div>
+                <div class="arrow Bb  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bb  up outer outer-1"></div>
+                <div class="arrow Bb  down outer outer-2"></div>
+                <div class="arrow Bb  up inner inner-6"></div>
+                <div class="arrow Bb  down inner inner-5"></div>
+                <div class="arrow Bb  up inner inner-4"></div>
+                <div class="arrow Bb  down outer outer-13"></div>
+                <div class="arrow Bb  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bb  down outer outer-3"></div>
+                <div class="arrow Bb  up outer outer-4"></div>
+                <div class="arrow Bb  down inner inner-1"></div>
+                <div class="arrow Bb  up inner inner-2"></div>
+                <div class="arrow Bb  down inner inner-3"></div>
+                <div class="arrow Bb  up outer outer-11"></div>
+                <div class="arrow Bb  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bb  down outer outer-5"></div>
+                <div class="arrow Bb  up outer outer-6"></div>
+                <div class="arrow Bb  down outer outer-7"></div>
+                <div class="arrow Bb  up outer outer-8"></div>
+                <div class="arrow Bb  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">B<sup>b</sup></h1>
+                </main>
+                </div>       `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+                }
+                let tastopremuto = document.getElementById("blackKey10");
+                 tastopremuto.classList.remove("black");
+                 tastopremuto.classList.add("blackpressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("blackpressed");
+                    tastopremuto.classList.add("black");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(bb);
+              };
+                if ( premutoTM == 1) {
+      TriadeMaggiore(bb);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(bb);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(bb);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(bb);
+            premutoTA = 0;}
+            }
+            
+            function hhb_play() {
+              let contenitoreNota = document.createElement("div");
+              var b= playNote(26);
+   
+                if(premutoNote!=0) {
+                let nota = document.createElement("div");
+                nota.innerHTML = `
+                <div id="animazioneNota" >
+                <main class="NotaLuce">
+                <div class="dank-ass-loader">
+                <div class="row">
+                <div class="arrow Bpink up outer outer-18"></div>
+                <div class="arrow Bpink  down outer outer-17"></div>
+                <div class="arrow Bpink  up outer outer-16"></div>
+                <div class="arrow Bpink  down outer outer-15"></div>
+                <div class="arrow Bpink  up outer outer-14"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bpink  up outer outer-1"></div>
+                <div class="arrow Bpink  down outer outer-2"></div>
+                <div class="arrow Bpink  up inner inner-6"></div>
+                <div class="arrow Bpink  down inner inner-5"></div>
+                <div class="arrow Bpink  up inner inner-4"></div>
+                <div class="arrow Bpink  down outer outer-13"></div>
+                <div class="arrow Bpink  up outer outer-12"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bpink  down outer outer-3"></div>
+                <div class="arrow Bpink  up outer outer-4"></div>
+                <div class="arrow Bpink  down inner inner-1"></div>
+                <div class="arrow Bpink  up inner inner-2"></div>
+                <div class="arrow Bpink  down inner inner-3"></div>
+                <div class="arrow Bpink  up outer outer-11"></div>
+                <div class="arrow Bpink  down outer outer-10"></div>
+                </div>
+                <div class="row">
+                <div class="arrow Bpink  down outer outer-5"></div>
+                <div class="arrow Bpink  up outer outer-6"></div>
+                <div class="arrow Bpink  down outer outer-7"></div>
+                <div class="arrow Bpink  up outer outer-8"></div>
+                <div class="arrow Bpink  down outer outer-9"></div>
+                </div>
+                </div>
+                <h1 class="nomeNota">B</h1>
+                </main>
+                </div>        `;
+                
+                
+                contenitoreNota.append(nota);
+                animazioneNota.append(contenitoreNota);
+                /* partono 4 secondi al termine dei quali l'elemento note scompare*/
+                /* set time out e set attribute => displaynone o fading*/
+                setTimeout(function(){ contenitoreNota.remove();},5000);
+                
+            }
+                let tastopremuto = document.getElementById("whiteKey11");
+                 tastopremuto.classList.remove("white");
+                 tastopremuto.classList.add("whitepressed");
+                setInterval(function(){
+                    tastopremuto.classList.remove("whitepressed");
+                    tastopremuto.classList.add("white");
+                },700);
+                 if(premutoFreq!=0){
+                FreqNote(b);
+              };if ( premutoTM == 1) {
+      TriadeMaggiore(b);
+      premutoTM = 0;
+    }
+        else if(premutoTMin == 1)
+            {TriadeMinore(b);
+             premutoTMin = 0;
+            }
+        else if(premutoTD == 1)
+            {TriadeDiminuita(b);
+            premutoTD = 0;}
+        else if(premutoTA == 1)
+            {TriadeAumentata(b);
+            premutoTA = 0;}
+                
+            }
+            
+            
+            
             
             // aggiunti i tasti neri: Db, Eb, Gb, Ab e Bb raggiungibili cliccando rispettivamente su "1", "2", "3", "4" e "5"
         
@@ -1390,7 +3911,8 @@
               }
 
             }, true)
-
+           whiteKey1.onclick =lf_play;
+   blackKey1.onclick = lgb_play;
             whiteKey5.onclick = c_play;
             blackKey5.onclick = db_play;
             whiteKey6.onclick = d_play;
@@ -1480,69 +4002,177 @@
         
         <!-- Script per triadi -->
         <script>
-        /* script per generare gli intervalli a partire da qualunque nota: */
-    
-function terzaMaggiore(p) {
-var freq1 = Math.pow(2, (4)/12)*p;
-var n = 12*Math.log2((freq1)/440);
-return n;
-}
-function quintaGiusta(p) {
-var freq2 = Math.pow(2, (7)/12)*p;
-var n = 12*Math.log2((freq2)/440);
-return n;
-}
-function terzaMinore(p) {
-var freq1 = Math.pow(2, (3)/12)*p;
-var n = 12*Math.log2((freq1)/440);
-return n;
-}
-function quintaDiminuita(p) {
-var freq2 = Math.pow(2, (6)/12)*p;
-var n = 12*Math.log2((freq2)/440);
-return n;
-}
-function quintaEccedente(p) {
-var freq2 = Math.pow(2, (8)/12)*p;
-var n = 12*Math.log2((freq2)/440);
-return n;
-}
+
 
 /* script per generare le triadi a partire da qualunque fondamentale */
 
 function TriadeMaggiore(freq) {
 n = 12*Math.log2((freq)/440);
 c = playNote(n);
-setTimeout(function(){playNote(n+4)}, 1000);
-setTimeout(function(){playNote(n+7)}, 2000);
-}
+
+  if (n ==-9)
+  {setTimeout(function(){e_play()}, 1000);
+setTimeout(function(){g_play()}, 2000);}
+  else if (n ==-8)
+  {setTimeout(function(){f_play()}, 1000);
+setTimeout(function(){ab_play()}, 2000);}
+   else if (n ==-7)
+   {setTimeout(function(){gb_play()}, 1000);
+setTimeout(function(){a_play()}, 2000);}
+   
+ else if (n ==-6)
+ {setTimeout(function(){g_play()}, 1000);
+setTimeout(function(){bb_play()}, 2000);}
+    
+     else if (n ==-5)
+     {setTimeout(function(){ab_play()}, 1000);
+setTimeout(function(){b_play()}, 2000);}
+    
+     else if (n ==-4)
+     {setTimeout(function(){a_play()}, 1000);
+setTimeout(function(){c_play()}, 2000);}
+    
+     else if (n ==-3)
+     {setTimeout(function(){bb_play()}, 1000);
+setTimeout(function(){db_play()}, 2000);}
+    
+     else if (n ==-2)
+     {setTimeout(function(){b_play()}, 1000);
+setTimeout(function(){d_play()}, 2000);}
+     else if (n ==-1)
+     {setTimeout(function(){c_play()}, 1000);
+setTimeout(function(){eb_play()}, 2000);}
+   else if (n ==0)
+   {setTimeout(function(){hdb_play()}, 1000);
+setTimeout(function(){he_play()}, 2000);}
+  
+} 
+
+
 
 function TriadeMinore(freq) {
 n = 12*Math.log2((freq)/440);
 c = playNote(n);
-e = terzaMinore(c);
-g = quintaGiusta(c);
-setTimeout(function(){playNote(e)}, 1000);
-setTimeout(function(){playNote(g)}, 2000);
-}
+
+  if (n ==-9)
+  {setTimeout(function(){eb_play()}, 1000);
+setTimeout(function(){g_play()}, 2000);}
+  else if (n ==-8)
+  {setTimeout(function(){e_play()}, 1000);
+setTimeout(function(){ab_play()}, 2000);}
+   else if (n ==-7)
+   {setTimeout(function(){f_play()}, 1000);
+setTimeout(function(){a_play()}, 2000);}
+   
+ else if (n ==-6)
+ {setTimeout(function(){gb_play()}, 1000);
+setTimeout(function(){bb_play()}, 2000);}
+    
+     else if (n ==-5)
+     {setTimeout(function(){g_play()}, 1000);
+setTimeout(function(){b_play()}, 2000);}
+    
+     else if (n ==-4)
+     {setTimeout(function(){ab_play()}, 1000);
+setTimeout(function(){c_play()}, 2000);}
+    
+     else if (n ==-3)
+     {setTimeout(function(){a_play()}, 1000);
+setTimeout(function(){db_play()}, 2000);}
+    
+     else if (n ==-2)
+     {setTimeout(function(){bb_play()}, 1000);
+setTimeout(function(){d_play()}, 2000);}
+     else if (n ==-1)
+     {setTimeout(function(){b_play()}, 1000);
+setTimeout(function(){eb_play()}, 2000);}
+   else if (n ==0)
+   {setTimeout(function(){c_play()}, 1000);
+setTimeout(function(){e_play()}, 2000);}
+  
+} 
+
 
 function TriadeDiminuita(freq) {
 n = 12*Math.log2((freq)/440);
-c = playNote(n);
-e = terzaMinore(c);
-g = quintaDiminuita(c);
-setTimeout(function(){playNote(e)}, 1000);
-setTimeout(function(){playNote(g)}, 2000);
-}
+if (n ==-9)
+  {setTimeout(function(){eb_play()}, 1000);
+setTimeout(function(){gb_play()}, 2000);}
+  else if (n ==-8)
+  {setTimeout(function(){e_play()}, 1000);
+setTimeout(function(){g_play()}, 2000);}
+   else if (n ==-7)
+   {setTimeout(function(){f_play()}, 1000);
+setTimeout(function(){ab_play()}, 2000);}
+   
+ else if (n ==-6)
+ {setTimeout(function(){gb_play()}, 1000);
+setTimeout(function(){a_play()}, 2000);}
+    
+     else if (n ==-5)
+     {setTimeout(function(){g_play()}, 1000);
+setTimeout(function(){bb_play()}, 2000);}
+    
+     else if (n ==-4)
+     {setTimeout(function(){ab_play()}, 1000);
+setTimeout(function(){b_play()}, 2000);}
+    
+     else if (n ==-3)
+     {setTimeout(function(){a_play()}, 1000);
+setTimeout(function(){c_play()}, 2000);}
+    
+     else if (n ==-2)
+     {setTimeout(function(){bb_play()}, 1000);
+setTimeout(function(){db_play()}, 2000);}
+     else if (n ==-1)
+     {setTimeout(function(){b_play()}, 1000);
+setTimeout(function(){d_play()}, 2000);}
+   else if (n ==0)
+   {setTimeout(function(){c_play()}, 1000);
+setTimeout(function(){eb_play()}, 2000);}
+  
+} 
+
+
 function TriadeAumentata(freq) {
 n = 12*Math.log2((freq)/440);
 c = playNote(n);
-e = terzaMaggiore(c);
-g = quintaEccedente(c);
-setTimeout(function(){playNote(e)}, 1000);
-setTimeout(function(){playNote(g)}, 2000);
-}
-
+if (n ==-9)
+  {setTimeout(function(){e_play()}, 1000);
+setTimeout(function(){ab_play()}, 2000);}
+  else if (n ==-8)
+  {setTimeout(function(){f_play()}, 1000);
+setTimeout(function(){a_play()}, 2000);}
+   else if (n ==-7)
+   {setTimeout(function(){gb_play()}, 1000);
+setTimeout(function(){bb_play()}, 2000);}
+   
+ else if (n ==-6)
+ {setTimeout(function(){g_play()}, 1000);
+setTimeout(function(){b_play()}, 2000);}
+    
+     else if (n ==-5)
+     {setTimeout(function(){ab_play()}, 1000);
+setTimeout(function(){c_play()}, 2000);}
+    
+     else if (n ==-4)
+     {setTimeout(function(){a_play()}, 1000);
+setTimeout(function(){db_play()}, 2000);}
+    
+     else if (n ==-3)
+     {setTimeout(function(){bb_play()}, 1000);
+setTimeout(function(){d_play()}, 2000);}
+    
+     else if (n ==-2)
+     {setTimeout(function(){b_play()}, 1000);
+setTimeout(function(){eb_play()}, 2000);}
+     else if (n ==-1)
+     {setTimeout(function(){c_play()}, 1000);
+setTimeout(function(){e_play()}, 2000);}
+   else if (n ==0)
+   {setTimeout(function(){db_play()}, 1000);
+setTimeout(function(){f_play()}, 2000);}
+  } 
 let TriadeM = document.getElementById("TriadeM");
 let premutoTM = 0;
 let TriadeMin = document.getElementById("TriadeMin");
