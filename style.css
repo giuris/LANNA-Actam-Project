@@ -106,12 +106,45 @@ h1{
     font-family: serif;
     font-weight: bold;
     padding-right: 40px;
-    
-   
     text-shadow: 4px 4px 10px gray;
     letter-spacing: 2px;
 }
 
+h5{
+    position: absolute;
+    left: 95px;
+	 text-align: left;
+	 color: #9EB3BE;
+	 font-size: 50px;
+	 line-height: 80px;
+	 font-family: Helvetica, Arial, sans-serif;
+	 font-weight: bold;
+}
+
+h6{
+    position: absolute;
+    left: 95px;
+	 text-align: left;
+	 color: #9EB3BE;
+	 font-size: 50px;
+	 line-height: 60px;
+	 font-family: Helvetica, Arial, sans-serif;
+	 font-weight: bold;
+}
+
+#sample{
+    position: absolute;
+    clip: rect(0px,500px,300px,8px);
+    transform: scale(2.9);
+    border-color: 1px solid beige;
+}
+
+#painting{
+    position: absolute;
+    left:455px;
+    top: 290px;
+    border-color: 10px solid black;
+}
 
 .TRIADE{
     width:170px;

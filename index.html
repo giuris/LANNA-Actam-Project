@@ -37,36 +37,63 @@
             <img id="panel" src="zMedia/layout.png" style="position:absolute;">
             
             <div id="schermo">
-                <canvas id ="sample" width ="1700px" height ="872px" style ="border:1px solid black" class="dissolve"></canvas>
+                <div id="painting">
+                    <canvas id ="sample" width ="500px" height ="300px" class="dissolve"></canvas>
+                </div>
             </div>
             
             <div id="tutorialdiv" class="schermo2 dissolve">
                 <div id="x1">
                     <h1> Close </h1>
                 </div>
-                <p> Testo tutorial </p>
+                <p> TUTORIAL <br><br> </p>
+                    <h5>
+                        The keyboard has different functionality, first of all you can play with it in two different ways: <br>
+                        • use your mouse! <br>
+                        • use your pc keyboard! <br>
+                        If you pay attention, in the lower left corner there are two buttons, NOTE and FREQ. <br>
+                        • If you press NOTE you’ll be able to view the name of the note you are playing and its associated color. <br>
+                        • If you press FREQ you can see the swing of the pure tone related to the note you are playing.
+                    </h5>
             </div>
             
             <div id="examplediv" class="schermo2 dissolve">
                 <div id="x2">
                     <h1> Close </h1>
                 </div>
-                <p> Testo example </p>
+                <p> EXAMPLE <br><br> </p>
+                <h6>
+                    A triad is a chord with three notes that can be set as thirds because their pitches work together. <br>
+                    If you want an example of Major Triad, press the corresponding button and after choose a note and play it. The keyboard allows you to listen the third and the fifth notes associated to the one you’re playing. <br>
+                    • Press Major Triad and, after, press the note D. The chord played is called Dmajor. <br>
+                    • Press Minor Triad and, after, press the note D. The chord played is called Dmajor. <br>
+                    • Press Diminished Triad and, after, press the note D. The chord played is called Dmajor. <br>
+                    • Press Augmented Triad and, after, press the note D. The chord played is called Dmajor. <br>
+                    Now, try to play each one by yourself.
+                </h6>
             </div>
             
             <div id="contactsdiv" class="schermo2 dissolve">
                 <div id="x3">
                     <h1> Close </h1>
                 </div>
-                <p> Testo contacts </p>
+                <p> Contacts <br><br> </p>
+                    <h5 style="text-align: right; left:1200px">
+                        Creators: <br>
+                        Sartori Matteo -- matteo@lannapiano.com <br>
+                        Renzi Annafelicia -- anna@lannapiano.com <br>
+                        Risitano Giuseppe -- giuseppe@lannapiano.com <br><br>
+
+                        For any inquiry feel free to contact  info@lannapiano.com
+                    </h5>
             </div>
             
             
             <span id="triadi">
-              <button id="TriadeM" class="TRIADE">Triade Maggiore</button>
-              <button id="TriadeMin" class="TRIADE">Triade Minore</button>
-              <button id="TriadeDim" class="TRIADE">Triade Diminuita</button>
-              <button id="TriadeAug" class="TRIADE">Triade Aumentata</button>
+              <button id="TriadeM" class="TRIADE">Major Triad</button>
+              <button id="TriadeMin" class="TRIADE">Minor Triad</button>
+              <button id="TriadeDim" class="TRIADE">Diminished Triad</button>
+              <button id="TriadeAug" class="TRIADE">Augmented Triad</button>
             </span>
             
             
@@ -1486,10 +1513,8 @@ return n;
 function TriadeMaggiore(freq) {
 n = 12*Math.log2((freq)/440);
 c = playNote(n);
-e = terzaMaggiore(c);
-g = quintaGiusta(c);
-setTimeout(function(){playNote(e)}, 1000);
-setTimeout(function(){playNote(g)}, 2000);
+setTimeout(function(){playNote(n+4)}, 1000);
+setTimeout(function(){playNote(n+7)}, 2000);
 }
 
 function TriadeMinore(freq) {
