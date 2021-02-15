@@ -65,10 +65,10 @@
                 <h6>
                     A triad is a chord with three notes that can be set as thirds because their pitches work together. <br>
                     If you want an example of Major Triad, press the corresponding button and choose a note and play it. The keyboard allows you to listen the third and the fifth notes associated to the one you’re playing. <br>
-                    • Press Major Triad and, after, press the note C. The triad played is called Cmajor. <br>
-                    • Press Minor Triad and, after, press the note E. The triad played is called Eminor. <br>
-                    • Press Diminished Triad and, after, press the note A. The triad played is called Adim. <br>
-                    • Press Augmented Triad and, after, press the note D. The triad played is called Daug. <br>
+                    • Press Major Triad and, after, press the note D. The chord played is called Dmajor. <br>
+                    • Press Minor Triad and, after, press the note D. The chord played is called Dmajor. <br>
+                    • Press Diminished Triad and, after, press the note D. The chord played is called Dmajor. <br>
+                    • Press Augmented Triad and, after, press the note D. The chord played is called Dmajor. <br>
                     Now, try to play each one by yourself.
                 </h6>
             </div>
@@ -326,7 +326,7 @@
               <!-- script per interagire con la tastiera (ANIMAZIONI NOTE) -->
         <script>
             let animazioneNota = document.getElementById("divanimazioneNota");
-            const sustain = 500;
+            const sustain = 400;
         
             function playNote(n) {
                 c = new AudioContext();
@@ -913,7 +913,6 @@
             premutoTA = 0;}
                 
             }          
-          
            
             
             function c_play() {
@@ -1898,6 +1897,7 @@
             }
             
             
+                 
             function hc_play() {
               let contenitoreNota = document.createElement("div");
         var c = playNote(3); 
@@ -3863,8 +3863,7 @@
             
             
             
-            
-            // aggiunti di tasti neri: Db, Eb, Gb, Ab e Bb raggiungibili cliccando rispettivamente su "1", "2", "3", "4" e "5"
+            // aggiunti i tasti neri: Db, Eb, Gb, Ab e Bb raggiungibili cliccando rispettivamente su "1", "2", "3", "4" e "5"
         
             document.addEventListener("keydown", function(event) {
                 
@@ -3930,7 +3929,6 @@
             whiteKey10.onclick = a_play;
             blackKey10.onclick = bb_play;
             whiteKey11.onclick = b_play;
-            
             whiteKey12.onclick = hc_play;
             blackKey12.onclick = hdb_play;
             whiteKey13.onclick = hd_play;
@@ -3943,7 +3941,6 @@
             whiteKey17.onclick = ha_play;
             blackKey17.onclick = hbb_play;
             whiteKey18.onclick = hb_play;
-            
             whiteKey19.onclick = hhc_play;
             blackKey19.onclick = hhdb_play;
             whiteKey20.onclick = hhd_play;
@@ -4060,21 +4057,27 @@ setTimeout(function(){b_play()}, 2000);}
     
      else if (n ==-4)
      {setTimeout(function(){a_play()}, 1000);
-setTimeout(function(){c_play()}, 2000);}
+setTimeout(function(){hc_play()}, 2000);}
     
      else if (n ==-3)
      {setTimeout(function(){bb_play()}, 1000);
-setTimeout(function(){db_play()}, 2000);}
+setTimeout(function(){hdb_play()}, 2000);}
     
      else if (n ==-2)
      {setTimeout(function(){b_play()}, 1000);
-setTimeout(function(){d_play()}, 2000);}
+setTimeout(function(){hd_play()}, 2000);}
      else if (n ==-1)
-     {setTimeout(function(){c_play()}, 1000);
-setTimeout(function(){eb_play()}, 2000);}
+     {setTimeout(function(){hc_play()}, 1000);
+setTimeout(function(){heb_play()}, 2000);}
    else if (n ==0)
    {setTimeout(function(){hdb_play()}, 1000);
 setTimeout(function(){he_play()}, 2000);}
+       else if (n ==1)
+   {setTimeout(function(){hd_play()}, 1000);
+setTimeout(function(){hf_play()}, 2000);}
+       else if (n ==2)
+   {setTimeout(function(){heb_play()}, 1000);
+setTimeout(function(){hgb_play()}, 2000);}
   
 } 
 
@@ -4104,21 +4107,27 @@ setTimeout(function(){b_play()}, 2000);}
     
      else if (n ==-4)
      {setTimeout(function(){ab_play()}, 1000);
-setTimeout(function(){c_play()}, 2000);}
+setTimeout(function(){hc_play()}, 2000);}
     
      else if (n ==-3)
      {setTimeout(function(){a_play()}, 1000);
-setTimeout(function(){db_play()}, 2000);}
+setTimeout(function(){hdb_play()}, 2000);}
     
      else if (n ==-2)
      {setTimeout(function(){bb_play()}, 1000);
-setTimeout(function(){d_play()}, 2000);}
+setTimeout(function(){hd_play()}, 2000);}
      else if (n ==-1)
      {setTimeout(function(){b_play()}, 1000);
-setTimeout(function(){eb_play()}, 2000);}
+setTimeout(function(){heb_play()}, 2000);}
    else if (n ==0)
-   {setTimeout(function(){c_play()}, 1000);
-setTimeout(function(){e_play()}, 2000);}
+   {setTimeout(function(){hc_play()}, 1000);
+setTimeout(function(){he_play()}, 2000);}
+     else if (n ==1)
+   {setTimeout(function(){hdb_play()}, 1000);
+setTimeout(function(){hf_play()}, 2000);}
+       else if (n ==2)
+   {setTimeout(function(){hd_play()}, 1000);
+setTimeout(function(){hgb_play()}, 2000);}
   
 } 
 
@@ -4149,17 +4158,24 @@ setTimeout(function(){b_play()}, 2000);}
     
      else if (n ==-3)
      {setTimeout(function(){a_play()}, 1000);
-setTimeout(function(){c_play()}, 2000);}
+setTimeout(function(){hc_play()}, 2000);}
     
      else if (n ==-2)
      {setTimeout(function(){bb_play()}, 1000);
-setTimeout(function(){db_play()}, 2000);}
+setTimeout(function(){hdb_play()}, 2000);}
      else if (n ==-1)
      {setTimeout(function(){b_play()}, 1000);
-setTimeout(function(){d_play()}, 2000);}
+setTimeout(function(){hd_play()}, 2000);}
    else if (n ==0)
-   {setTimeout(function(){c_play()}, 1000);
-setTimeout(function(){eb_play()}, 2000);}
+   {setTimeout(function(){hc_play()}, 1000);
+setTimeout(function(){heb_play()}, 2000);}
+      else if (n ==1)
+   {setTimeout(function(){hdb_play()}, 1000);
+setTimeout(function(){he_play()}, 2000);}
+       else if (n ==2)
+   {setTimeout(function(){hd_play()}, 1000);
+setTimeout(function(){hf_play()}, 2000);}
+  
   
 } 
 
@@ -4183,25 +4199,31 @@ setTimeout(function(){b_play()}, 2000);}
     
      else if (n ==-5)
      {setTimeout(function(){ab_play()}, 1000);
-setTimeout(function(){c_play()}, 2000);}
+setTimeout(function(){hc_play()}, 2000);}
     
      else if (n ==-4)
      {setTimeout(function(){a_play()}, 1000);
-setTimeout(function(){db_play()}, 2000);}
+setTimeout(function(){hdb_play()}, 2000);}
     
      else if (n ==-3)
      {setTimeout(function(){bb_play()}, 1000);
-setTimeout(function(){d_play()}, 2000);}
+setTimeout(function(){hd_play()}, 2000);}
     
      else if (n ==-2)
      {setTimeout(function(){b_play()}, 1000);
-setTimeout(function(){eb_play()}, 2000);}
+setTimeout(function(){heb_play()}, 2000);}
      else if (n ==-1)
-     {setTimeout(function(){c_play()}, 1000);
-setTimeout(function(){e_play()}, 2000);}
+     {setTimeout(function(){hc_play()}, 1000);
+setTimeout(function(){he_play()}, 2000);}
    else if (n ==0)
-   {setTimeout(function(){db_play()}, 1000);
-setTimeout(function(){f_play()}, 2000);}
+   {setTimeout(function(){hdb_play()}, 1000);
+setTimeout(function(){hf_play()}, 2000);}
+     else if (n ==1)
+   {setTimeout(function(){hd_play()}, 1000);
+setTimeout(function(){hgb_play()}, 2000);}
+       else if (n ==2)
+   {setTimeout(function(){heb_play()}, 1000);
+setTimeout(function(){hg_play()}, 2000);}
   } 
 let TriadeM = document.getElementById("TriadeM");
 let premutoTM = 0;
