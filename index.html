@@ -57,7 +57,7 @@
                     </h5>
             </div>
             
-            <div id="examplediv" class="schermo2 dissolve">
+           <div id="examplediv" class="schermo2 dissolve">
                 <div id="x2">
                     <h1> Close </h1>
                 </div>
@@ -329,16 +329,21 @@
             const sustain = 400;
         
             function playNote(n) {
-                c = new AudioContext();
+                  c = new AudioContext();
                   c.createOscillator();
                   var d = c.createOscillator();
-                  d.connect(c.destination);
+                  threshold = c.createGain();
+                  d.connect(threshold);
+                  threshold.connect(c.destination);
                   const freq = Math.pow(2, (n)/12)*440;
                   d.start();
+                  threshold.gain.setValueAtTime(0, c.currentTime);
+                  threshold.gain.linearRampToValueAtTime(1, c.currentTime+0.2);
+                  threshold.gain.linearRampToValueAtTime(0, c.currentTime+0.8);
                   d.frequency.value = freq;
-                  setTimeout (function(){
+                  /*setTimeout (function(){
                  d.stop();
-                  }, sustain);
+                  }, sustain);*/
                 return freq;
 }
 /* definisco le funzioni che faranno suonare le note riferendomi al modello generale playNote*/
@@ -4275,4 +4280,3 @@ TriadeAug.onclick = function(){
 
 
 </html>
-
