@@ -5,3 +5,5 @@ Keys can be played in two ways: either with the click of the mouse or pressing t
 
 Pressing the NOTE button you will be able to see the animations of the notes that you are playing on the right of the display. 
 The FREQ button allows to see the swing of the pure tone related to the played note to the left.
+
+Link of the YouTube video: https://www.youtube.com/watch?v=O90AwhouFe4&feature=youtu.be
