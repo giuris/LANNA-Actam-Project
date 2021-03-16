@@ -22,7 +22,13 @@ This web application has been realized with the use of HTML, CSS and JavaScript 
 
 
 # FEATURES
+Our project is based on HTLM,CSS and JS code. With HTML we manage the structure of the interface, in fact we have used it to insert in the code the images to create the layout. With a combination of HTML and CSS we create the animations, the triad’s buttons and the menu. JavaScript has an important role in the project, because it is used for the dynamic interactions between the keyboard and the user and between different part of the project. In fact JS allows us to link the piano keys to sounds and animations.
+
 ![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/tastieraFREQNOTE.png)
+
+1. NOTE button to see the animation of the note related to the pressed key;
+2. FREQ button to see the sinusoid related to the played key;
+3. Keyboard. You can play it with your computer or clicking the single keys with your mouse or trackpad.
 
 
 ### NOTE button
@@ -50,7 +56,13 @@ Here is an example:
 ![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/tastieraCHORDS.png)
 
 ### Chords
-a
+A triad is a chord with three notes that can be set as thirds because their pitches work together. Each note in a triad bears a specific label. The bottom note is called the root, the middle note is called the third, and the top note is called the fifth. 
+
+The four main types of triads that exist in music are called Major, Minor, Augmented and Diminished. 
+
+To produce the various chords we have chosen to use all 4 different types of triads. The functioning is very intuitive: If the user wants an example of Major Triad (and it is the same for the other triad’s buttons), he/she has to press the corresponding button and after choose a note and play it. 
+
+The keyboard allows to listen the third and the fifth notes associated to the one played. At the same time, the animations referring to the three notes of the triad will appear on the screen.
 
 
 # INTERACTIVE MENU
