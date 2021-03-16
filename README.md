@@ -4,16 +4,17 @@
 
 [TOC]
 
-# LANNA-Actam-Project
+#LANNA-Actam-Project
 
 ![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/logo.png)
 
+---------------------------------------------------
 
 #INTERFACE
 
 ![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/layout.png)
 
-##Layout (Underline)
+##Layout 
 a
 
 ##Technologies Used
@@ -26,15 +27,15 @@ a
 ##Main features
 a
 
-####Note button
+###Note button
 a
-####Freq button
-a
-
-###Other features
+###Freq button
 a
 
-####Chords
+##Other features
+a
+
+###Chords
 a
 
 
