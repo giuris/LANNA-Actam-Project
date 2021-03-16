@@ -53,12 +53,14 @@ Here is an example:
 ###### Other features
 - When NOTE and FREQ modes are enabled, the user is able to see both the animations of the played notes and their frequencies on the display of the keyboard. 
 
-![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/tastieraCHORDS.png)
 
 ### Chords
+
+![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/tastieraCHORDS.png)
+
 A triad is a chord with three notes that can be set as thirds because their pitches work together. Each note in a triad bears a specific label. The bottom note is called the root, the middle note is called the third, and the top note is called the fifth. 
 
-The four main types of triads that exist in music are called Major, Minor, Augmented and Diminished. 
+The four main types of triads that exist in music are called Major (1), Minor (2), Augmented (3) and Diminished (4). 
 
 To produce the various chords we have chosen to use all 4 different types of triads. The functioning is very intuitive: If the user wants an example of Major Triad (and it is the same for the other triad’s buttons), he/she has to press the corresponding button and after choose a note and play it. 
 
