@@ -22,6 +22,8 @@ This web application has been realized with the use of HTML, CSS and JavaScript 
 
 
 # FEATURES
+![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/tastieraFREQNOTE.png)
+
 
 ### NOTE button
 Pressing the NOTE button you will be able to see the animations of the notes that you are playing on the right of the display. 
@@ -44,6 +46,8 @@ Here is an example:
 
 ###### Other features
 - When NOTE and FREQ modes are enabled, the user is able to see both the animations of the played notes and their frequencies on the display of the keyboard. 
+
+![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/tastieraCHORDS.png)
 
 ### Chords
 a
