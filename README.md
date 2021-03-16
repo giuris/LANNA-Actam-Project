@@ -1,9 +1,21 @@
 # LANNA-Actam-Project
-The idea of the project is to create an educational keyboard that helps young students to learn the basics of notes and chords.
 
-Keys can be played in two ways: either with the click of the mouse or pressing the corresponding keyboard key. In both ways sound will be emitted.
+![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/logo.png)
 
-Pressing the NOTE button you will be able to see the animations of the notes that you are playing on the right of the display. 
-The FREQ button allows to see the swing of the pure tone related to the played note to the left.
+**Table of Contents**
 
-Link of the YouTube video: https://www.youtube.com/watch?v=O90AwhouFe4&feature=youtu.be
+[TOCM]
+
+[TOC]
+
+#H1 INTERFACE
+##H2 Layout
+##H2 Technologies Used
+#H1 FEATURES
+##H2 Main features
+####H3 Note button
+####H3 Freq button
+###H2 Other features
+####H3 Chords
+#H1 INTERACTIVE MENU
+#H1 CONCLUSION
