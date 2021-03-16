@@ -17,7 +17,7 @@ In the upper part of the interface there is a screen in which animations will ap
 The  minimal layout presents the buttons NOTE and FREQ which have been created with Photoshop, while the piano keys and the logo “LANNA-GMA™” have been created with Pixelmator.
 We obtained the background using the gradient fading property of the CSS programming language. 
 
-# TECHNOLOGIES USED
+## Software involved
 This web application has been realized with the use of HTML, CSS and JavaScript languages and, thanks to the use of the Brackets editor, we were able to write every part of the code and collect everything here on GitHub.
 
 
