@@ -23,5 +23,3 @@
 #CONCLUSION
 Here you can find a demo video.
 `<link>` : <https://youtu.be/O90AwhouFe4>
-[Demo Video][id/name] 
-[id/name]: https://youtu.be/O90AwhouFe4
