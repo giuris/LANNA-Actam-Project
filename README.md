@@ -4,46 +4,45 @@
 
 [TOC]
 
-#LANNA-Actam-Project
+# LANNA-Actam-Project
 
 ![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/logo.png)
 
----------------------------------------------------
 
-#INTERFACE
+# INTERFACE
 
 ![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/layout.png)
 
-##Layout 
+## Layout 
 a
 
-##Technologies Used
+## Technologies Used
 a
 
 
-#FEATURES
+# FEATURES
 a
 
-##Main features
+## Main features
 a
 
 ###Note button
 a
-###Freq button
+### Freq button
 a
 
-##Other features
+## Other features
 a
 
-###Chords
-a
-
-
-#INTERACTIVE MENU
+### Chords
 a
 
 
-#CONCLUSION
+# INTERACTIVE MENU
+a
+
+
+# CONCLUSION
 a
 
 Here you can find a demo video.
