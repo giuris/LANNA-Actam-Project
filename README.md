@@ -9,7 +9,7 @@
 [TOC]
 
 #INTERFACE
-================
+![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/layout.png)
 
 ##Layout (Underline)
 
@@ -23,6 +23,5 @@
 #INTERACTIVE MENU
 #CONCLUSION
 
-#CONCLUSION
 Here you can find a demo video.
 `<link>` : <https://youtu.be/O90AwhouFe4>
