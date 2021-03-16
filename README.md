@@ -18,14 +18,10 @@ The  minimal layout presents the buttons NOTE and FREQ which have been created w
 We obtained the background using the gradient fading property of the CSS programming language. 
 
 # TECHNOLOGIES USED
-This web application has been realized with the use of HTML, CSS and JavaScript languages and, thanks to the use of the Brackets editor, we were able to write every part of the code.
+This web application has been realized with the use of HTML, CSS and JavaScript languages and, thanks to the use of the Brackets editor, we were able to write every part of the code and collect everything here on GitHub.
 
 
 # FEATURES
-a
-
-## Main features
-a
 
 ### NOTE button
 Pressing the NOTE button you will be able to see the animations of the notes that you are playing on the right of the display. 
@@ -43,23 +39,34 @@ Like the NOTE button, Pressing the FREQ one it changes its color, from blue (unp
 
 Here is an example:
 
-
 ![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/freqq.png)
 
 
-## Other features
-a
+###### Other features
+- When NOTE and FREQ modes are enabled, the user is able to see both the animations of the played notes and their frequencies on the display of the keyboard. 
 
 ### Chords
 a
 
 
 # INTERACTIVE MENU
-a
+The application has an animated menu in which, by clicking on it, we find the items Tutorial, Example and Contacts.
+
+![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/menu.png)
+
+In Tutorial there is a simple explanation of how to play and what the various buttons do.
+
+The Example section shows a simple description of what a triad is and explains how to make simple chords.
+
+In the end, by clicking on Contacts it is possible to reach us out.
 
 
 # CONCLUSION
-a
+This project may have several additional features if developed over time, like the MIDI support, the possibility to change the frequency range and adding potentiometers and new scales.
 
-Here you can find a demo video.
+For now, it has the basis to become a usable application in schools to teach the fundamentals of music theory, and the ideal would be to install this software on each student's computer!
+
+------------------------------------
+
+Finally, here you can find a demo video.
 `<link>` : <https://youtu.be/O90AwhouFe4>
