@@ -1,5 +1,10 @@
 # LANNA-Actam-Project
 
+**Table of Contents**
+
+[TOC]
+
+
 ![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/logo.png)
 
 ## Introduction
