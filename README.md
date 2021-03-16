@@ -1,8 +1,16 @@
 # LANNA-Actam-Project
 
-**Table of Contents**
+**Index**
 
-[TOC]
+- [LANNA-Actam-Project](#lanna-actam-project)
+  - [Introduction](#introduction)
+- [INTERFACE](#interface)
+  - [Layout](#layout)
+  - [Software involved](#software-involved)
+- [FEATURES](#features)
+- [INTERACTIVE MENU](#interactive-menu)
+- [CONCLUSION](#conclusion)
+
 
 
 ![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/logo.png)
