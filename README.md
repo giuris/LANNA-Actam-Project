@@ -8,16 +8,19 @@
 
 [TOC]
 
-#H1 INTERFACE
-##H2 Layout
-##H2 Technologies Used
-#H1 FEATURES
-##H2 Main features
-####H3 Note button
-####H3 Freq button
-###H2 Other features
-####H3 Chords
-#H1 INTERACTIVE MENU
-#H1 CONCLUSION
+#INTERFACE
+##Layout
+##Technologies Used
+#FEATURES
+##Main features
+####Note button
+####Freq button
+###Other features
+####Chords
+#INTERACTIVE MENU
+#CONCLUSION
 
-`<link>` : <https://youtu.be/O90AwhouFe4>
+#CONCLUSION
+Here you can find a demo video.
+`<link>` : [Demo Video][id/name] 
+[id/name]: https://youtu.be/O90AwhouFe4
