@@ -1,5 +1,7 @@
 # LANNA-Actam-Project
 
+![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/logo.png)
+
 **Index**
 
 - [LANNA-Actam-Project](#lanna-actam-project)
@@ -13,7 +15,7 @@
 
 
 
-![](https://github.com/giuris/LANNA-Actam-Project/blob/main/screenshots/logo.png)
+
 
 ## Introduction
 As a project for the Advanced Coding Tools and Methodologies course we decide to create an educational keyboard that helps young students to learn the basics of notes and chords. 
